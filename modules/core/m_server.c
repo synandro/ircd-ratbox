@@ -112,6 +112,19 @@ mr_server(struct Client *client_p, struct Client *source_p, int parc, const char
 	hop = atoi(parv[2]);
 	rb_strlcpy(info, parv[3], sizeof(info));
 
+	{
+		size_t name_len = strlen(name);
+
+		if(name_len > HOSTLEN)
+		{
+			ilog(L_SERVER,
+			     "Access denied, servername %s from %s exceeds maximum length (%zu > %d)",
+			     name, log_client_name(client_p, SHOW_IP), name_len, HOSTLEN);
+			exit_client(client_p, client_p, client_p, "Invalid servername length.");
+			return 0;
+		}
+	}
+
 	/* 
 	 * Reject a direct nonTS server connection if we're TS_ONLY -orabidoo
 	 */
@@ -123,6 +136,8 @@ mr_server(struct Client *client_p, struct Client *source_p, int parc, const char
 
 	if(!valid_servername(name))
 	{
+		ilog(L_SERVER, "Access denied, servername %s from %s contains invalid characters",
+		     name, log_client_name(client_p, SHOW_IP));
 		exit_client(client_p, client_p, client_p, "Invalid servername.");
 		return 0;
 	}
