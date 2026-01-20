@@ -233,17 +233,30 @@ mo_undline(struct Client *client_p, struct Client *source_p, int parc, const cha
 static int
 valid_dline(struct Client *source_p, const char *dlhost)
 {
-	char cidr_form_host[HOSTLEN + 1];
+	const char *slash;
 	int bits;
+	int maxbits;
 	int ty;
-
-	rb_strlcpy(cidr_form_host, dlhost, sizeof(cidr_form_host));
 
 	ty = parse_netmask(dlhost, NULL, &bits);
 	if(!ty || ty == HM_HOST)
 	{
 		sendto_one_notice(source_p, ":Invalid D-Line");
 		return 0;
+	}
+
+	maxbits = (ty == HM_IPV6) ? 128 : 32;
+	slash = strchr(dlhost, '/');
+	if(slash != NULL)
+	{
+		char *endptr = NULL;
+		long requested_bits = strtol(slash + 1, &endptr, 10);
+
+		if(endptr == slash + 1 || *endptr != '\0' || requested_bits < 0 || requested_bits > maxbits)
+		{
+			sendto_one_notice(source_p, ":Invalid D-Line");
+			return 0;
+		}
 	}
 
 	if(IsOperAdmin(source_p))
