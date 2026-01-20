@@ -109,10 +109,8 @@ clicap_compare(const char *name, struct clicap *cap)
  * Ouputs: Cap entry if found, NULL otherwise.
  */
 static struct clicap *
-clicap_find(const char *data, int *negate, int *finished, char **p)
+clicap_find(const char *data, int *negate, int *finished, char *buf, size_t bufsz, char **p)
 {
-	char buf[IRCD_BUFSIZE];
-//	static char *p = NULL;
 	struct clicap *cap;
 	char *s;
 
@@ -120,7 +118,7 @@ clicap_find(const char *data, int *negate, int *finished, char **p)
 
 	if(data != NULL)
 	{
-		rb_strlcpy(buf, data, sizeof(buf));
+		rb_strlcpy(buf, data, bufsz);
 		*p = buf;
 	} 
 
@@ -270,14 +268,15 @@ static void
 cap_ack(struct Client *source_p, const char *arg)
 {
 	struct clicap *cap;
+	char clicap_buf[IRCD_BUFSIZE];
 	int capadd = 0, capdel = 0;
 	int finished = 0, negate;
 	char *p = NULL;
 	if(EmptyString(arg))
 		return;
 
-	for(cap = clicap_find(arg, &negate, &finished, &p); cap;
-	    cap = clicap_find(NULL, &negate, &finished, &p))
+	for(cap = clicap_find(arg, &negate, &finished, clicap_buf, sizeof(clicap_buf), &p); cap;
+	    cap = clicap_find(NULL, &negate, &finished, clicap_buf, sizeof(clicap_buf), &p))
 	{
 		/* sent an ACK for something they havent REQd */
 		if(!IsCapable(source_p, cap->cap_serv))
@@ -352,6 +351,7 @@ cap_req(struct Client *source_p, const char *arg)
 {
 	char buf[IRCD_BUFSIZE];
 	char pbuf[2][IRCD_BUFSIZE];
+	char clicap_buf[IRCD_BUFSIZE];
 	char *p = NULL;
 	struct clicap *cap;
 	int buflen, plen;
@@ -371,8 +371,8 @@ cap_req(struct Client *source_p, const char *arg)
 	pbuf[0][0] = '\0';
 	plen = 0;
 
-	for(cap = clicap_find(arg, &negate, &finished, &p); cap;
-	    cap = clicap_find(NULL, &negate, &finished, &p))
+	for(cap = clicap_find(arg, &negate, &finished, clicap_buf, sizeof(clicap_buf), &p); cap;
+	    cap = clicap_find(NULL, &negate, &finished, clicap_buf, sizeof(clicap_buf), &p))
 	{
 		/* filled the first array, but cant send it in case the
 		 * request fails.  one REQ should never fill more than two
