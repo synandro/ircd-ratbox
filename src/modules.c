@@ -353,7 +353,7 @@ load_core_modules(int warn)
 int
 load_one_module(const char *path, int coremodule)
 {
-	char modpath[MAXPATHLEN];
+	char modpath[MAXPATHLEN*2];
 	rb_dlink_node *pathst;
 
 	struct stat statbuf;
