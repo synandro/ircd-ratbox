@@ -1,0 +1,82 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            autoconf \
+            automake \
+            libtool \
+            gcc \
+            make \
+            m4 \
+            perl \
+            libssl-dev \
+            pkg-config
+
+      - name: Ensure automake-1.14 tools are available
+        run: |
+          if ! command -v aclocal-1.14 >/dev/null 2>&1; then
+            sudo ln -s "$(command -v aclocal)" /usr/local/bin/aclocal-1.14
+          fi
+          if ! command -v automake-1.14 >/dev/null 2>&1; then
+            sudo ln -s "$(command -v automake)" /usr/local/bin/automake-1.14
+          fi
+
+      - name: Configure
+        run: |
+          ./configure --prefix=/usr/local/ircd-ratbox
+
+      - name: Build
+        run: |
+          set -euo pipefail
+          make -j"$(nproc)" 2>&1 | tee build.log
+
+      - name: Install (staged)
+        run: |
+          sudo mkdir -p /usr/local/ircd-ratbox/logs
+          make install DESTDIR="$PWD/_install"
+
+      - name: Smoke check
+        run: |
+          set -euo pipefail
+          if [ -x ./ircd-ratbox ]; then
+            bin=./ircd-ratbox
+          elif [ -x src/ircd ]; then
+            bin=src/ircd
+          elif [ -x ircd/ircd ]; then
+            bin=ircd/ircd
+          elif [ -x "_install/usr/local/ircd-ratbox/bin/ircd-ratbox" ]; then
+            bin=_install/usr/local/ircd-ratbox/bin/ircd-ratbox
+          elif [ -x "_install/usr/local/sbin/ircd" ]; then
+            bin=_install/usr/local/sbin/ircd
+          elif [ -x "_install/usr/local/bin/ircd" ]; then
+            bin=_install/usr/local/bin/ircd
+          else
+            bin=$(find . -maxdepth 5 -type f \( -name ircd -o -name ircd-ratbox \) -perm -111 | head -n 1)
+          fi
+          if [ -z "${bin:-}" ]; then
+            echo "No ircd binary found for smoke check."
+            exit 1
+          fi
+          "$bin" -version
+
+      - name: Upload logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: |
+            config.log
+            build.log
