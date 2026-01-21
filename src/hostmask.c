@@ -470,7 +470,7 @@ find_address_conf(const char *host, const char *sockhost, const char *user, stru
 			return kconf;
 	}
 	
-	if(ConfigFileEntry.ipv6_tun_remap == true && ip != NULL && GET_SS_FAMILY(&ip) == AF_INET6) 
+	if(ConfigFileEntry.ipv6_tun_remap == true && ip != NULL && ip->sa_family == AF_INET6) 
 	{
                 struct sockaddr_in in;
                 ipv4_from_ipv6((struct sockaddr_in6 *)ip, &in);
