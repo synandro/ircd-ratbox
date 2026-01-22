@@ -160,7 +160,7 @@ fnv_hash_len(const unsigned char *s, unsigned int bits, size_t len)
 {
 	uint32_t h = FNV1_32_INIT;
 	const unsigned char *x = s + len;
-	while(*s && s < x)
+	while(s < x && *s)
 	{
 		h ^= *s++;
 		h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
@@ -175,7 +175,7 @@ fnv_hash_upper_len(const unsigned char *s, unsigned int bits, size_t len)
 {
 	uint32_t h = FNV1_32_INIT;
 	const unsigned char *x = s + len;
-	while(*s && s < x)
+	while(s < x && *s)
 	{
 		h ^= ToUpper(*s++);
 		h += (h << 1) + (h << 4) + (h << 7) + (h << 8) + (h << 24);
