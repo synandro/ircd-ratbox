@@ -21,10 +21,10 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <commio-ssl.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "commio-ssl.h"
 
 static log_cb *rb_log;
 static restart_cb *rb_restart;

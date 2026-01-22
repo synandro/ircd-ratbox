@@ -22,18 +22,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <ircd.h>
-#include <s_user.h>
-#include <client.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <send.h>
-#include <match.h>
-#include <parse.h>
-#include <hash.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "ircd.h"
+#include "s_user.h"
+#include "client.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "send.h"
+#include "match.h"
+#include "parse.h"
+#include "hash.h"
+#include "modules.h"
 
 static int mr_pong(struct Client *, struct Client *, int, const char **);
 static int ms_pong(struct Client *, struct Client *, int, const char **);

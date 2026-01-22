@@ -22,21 +22,21 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <modules.h>
-#include <channel.h>
-#include <match.h>
-#include <hash.h>
-#include <send.h>
-#include <s_newconf.h>
-#include <hook.h>
-#include <services.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "modules.h"
+#include "channel.h"
+#include "match.h"
+#include "hash.h"
+#include "send.h"
+#include "s_newconf.h"
+#include "hook.h"
+#include "services.h"
 
 static int m_message(int, const char *, struct Client *, struct Client *, int, const char **);
 static int m_privmsg(struct Client *, struct Client *, int, const char **);

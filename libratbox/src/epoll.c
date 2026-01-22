@@ -25,10 +25,10 @@
  */
 #define _GNU_SOURCE 1
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <event-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "event-int.h"
 #if defined(HAVE_EPOLL_CTL) && (HAVE_SYS_EPOLL_H)
 #define USING_EPOLL
 #include <fcntl.h>

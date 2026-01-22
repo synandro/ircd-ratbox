@@ -19,18 +19,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <struct.h>
-#include <ircd_defs.h>
-#include <parse.h>
-#include <dns.h>
-#include <match.h>
-#include <s_log.h>
-#include <s_conf.h>
-#include <client.h>
-#include <send.h>
-#include <numeric.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "struct.h"
+#include "ircd_defs.h"
+#include "parse.h"
+#include "dns.h"
+#include "match.h"
+#include "s_log.h"
+#include "s_conf.h"
+#include "client.h"
+#include "send.h"
+#include "numeric.h"
 
 #define DNS_IDTABLE_SIZE 0x2000
 

@@ -29,14 +29,14 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <stdinc.h>
-#include <struct.h>
-#include <hash.h>
-#include <monitor.h>
-#include <numeric.h>
-#include <ircd.h>
-#include <match.h>
-#include <send.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "hash.h"
+#include "monitor.h"
+#include "numeric.h"
+#include "ircd.h"
+#include "match.h"
+#include "send.h"
 
 struct monitor *
 find_monitor(const char *name, bool add)

@@ -22,26 +22,26 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <hook.h>
-#include <modules.h>
-#include <s_log.h>
-#include <ircd.h>
-#include <client.h>
-#include <send.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <numeric.h>
-#include <parse.h>
-#include <match.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "hook.h"
+#include "modules.h"
+#include "s_log.h"
+#include "ircd.h"
+#include "client.h"
+#include "send.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "numeric.h"
+#include "parse.h"
+#include "match.h"
 
 
 
 
 #ifndef STATIC_MODULES
 
-#include <ltdl.h>
+#include "ltdl.h"
 
 
 

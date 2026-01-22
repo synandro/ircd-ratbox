@@ -22,23 +22,23 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <s_gline.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <hostmask.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <scache.h>
-#include <send.h>
-#include <s_serv.h>
-#include <hash.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_gline.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "hostmask.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "scache.h"
+#include "send.h"
+#include "s_serv.h"
+#include "hash.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_log.h"
 
 static int mo_gline(struct Client *, struct Client *, int, const char **);
 static int mc_gline(struct Client *, struct Client *, int, const char **);

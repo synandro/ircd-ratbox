@@ -24,10 +24,10 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <event-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "event-int.h"
 #if defined(HAVE_PORT_H) && (HAVE_PORT_CREATE)
 
 #include <port.h>

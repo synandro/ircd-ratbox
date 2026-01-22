@@ -22,21 +22,21 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <send.h>
-#include <channel.h>
-#include <class.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <hook.h>
-#include <monitor.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "send.h"
+#include "channel.h"
+#include "class.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "hook.h"
+#include "monitor.h"
 
 
 static unsigned long current_serial = 0L;

@@ -2,8 +2,8 @@
 /*
  * snprintf.c - just some sprintf append type functions 
  */
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 
 #if (((__GNUC__ * 100) + __GNUC_MINOR__) >= 406)
 #pragma GCC diagnostic push

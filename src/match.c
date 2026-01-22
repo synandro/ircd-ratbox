@@ -16,15 +16,15 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  */
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <ircd.h>
-#include <struct.h>
-#include <match.h>
-#include <s_conf.h>
-#include <s_log.h>
-#include <send.h>
-#include <client.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "ircd.h"
+#include "struct.h"
+#include "match.h"
+#include "s_conf.h"
+#include "s_log.h"
+#include "send.h"
+#include "client.h"
 
 /* match()
  * 

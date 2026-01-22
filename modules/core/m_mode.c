@@ -22,22 +22,22 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <channel.h>
-#include <client.h>
-#include <hash.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_user.h>
-#include <s_conf.h>
-#include <s_serv.h>
-#include <s_log.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_newconf.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "channel.h"
+#include "client.h"
+#include "hash.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_user.h"
+#include "s_conf.h"
+#include "s_serv.h"
+#include "s_log.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_newconf.h"
 
 static int m_mode(struct Client *, struct Client *, int, const char **);
 static int ms_mode(struct Client *, struct Client *, int, const char **);

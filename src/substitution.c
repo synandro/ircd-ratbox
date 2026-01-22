@@ -33,14 +33,14 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <ircd_defs.h>
-#include <struct.h>
-#include <s_log.h>
-#include <s_user.h>
-#include <send.h>
-#include <match.h>
-#include <substitution.h>
+#include "stdinc.h"
+#include "ircd_defs.h"
+#include "struct.h"
+#include "s_log.h"
+#include "s_user.h"
+#include "send.h"
+#include "match.h"
+#include "substitution.h"
 
 /*
  * Simple mappings for $foo -> 'bar'.

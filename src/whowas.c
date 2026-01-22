@@ -22,20 +22,20 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <hash.h>
-#include <whowas.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <s_user.h>
-#include <send.h>
-#include <s_conf.h>
-#include <client.h>
-#include <send.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "hash.h"
+#include "whowas.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "s_user.h"
+#include "send.h"
+#include "s_conf.h"
+#include "client.h"
+#include "send.h"
+#include "s_log.h"
 
 struct whowas_top
 {

@@ -22,23 +22,23 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <hash.h>
-#include <channel.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <s_serv.h>
-#include <send.h>
-#include <match.h>
-#include <s_conf.h>
-#include <s_log.h>
-#include <parse.h>
-#include <hook.h>
-#include <modules.h>
-#include <s_newconf.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "hash.h"
+#include "channel.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "s_serv.h"
+#include "send.h"
+#include "match.h"
+#include "s_conf.h"
+#include "s_log.h"
+#include "parse.h"
+#include "hook.h"
+#include "modules.h"
+#include "s_newconf.h"
 
 static void do_whois(struct Client *client_p, struct Client *source_p, int parc,
 		     const char *parv[]);

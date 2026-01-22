@@ -24,19 +24,19 @@
 
 /* rewritten by jdc */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <channel.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_auth.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "channel.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_auth.h"
+#include "parse.h"
+#include "modules.h"
 
 #define SET_HASH_SIZE 8
 

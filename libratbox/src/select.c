@@ -23,9 +23,9 @@
  *  USA
  */
 #define FD_SETSIZE 65535
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
 
 #if defined(HAVE_SELECT) || defined(_WIN32)
 

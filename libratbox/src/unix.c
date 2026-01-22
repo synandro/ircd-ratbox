@@ -21,8 +21,8 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 
 
 #ifndef _WIN32

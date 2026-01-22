@@ -22,33 +22,33 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <s_user.h>
-#include <channel.h>
-#include <class.h>
-#include <client.h>
-#include <hash.h>
-#include <match.h>
-#include <ircd.h>
-#include <listener.h>
-#include <parse.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <s_serv.h>
-#include <s_stats.h>
-#include <scache.h>
-#include <send.h>
-#include <supported.h>
-#include <whowas.h>
-#include <packet.h>
-#include <reject.h>
-#include <cache.h>
-#include <hook.h>
-#include <monitor.h>
-#include <version.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_user.h"
+#include "channel.h"
+#include "class.h"
+#include "client.h"
+#include "hash.h"
+#include "match.h"
+#include "ircd.h"
+#include "listener.h"
+#include "parse.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "s_serv.h"
+#include "s_stats.h"
+#include "scache.h"
+#include "send.h"
+#include "supported.h"
+#include "whowas.h"
+#include "packet.h"
+#include "reject.h"
+#include "cache.h"
+#include "hook.h"
+#include "monitor.h"
+#include "version.h"
 
 static void report_and_set_user_flags(struct Client *, struct ConfItem *);
 void user_welcome(struct Client *source_p);

@@ -22,9 +22,9 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
 
 
 static unsigned int bufline_count = 0;

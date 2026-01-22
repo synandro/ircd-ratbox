@@ -30,17 +30,17 @@
  *  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  */
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <channel.h>
-#include <numeric.h>
-#include <parse.h>
-#include <modules.h>
-#include <hash.h>
-#include <send.h>
-#include <s_conf.h>
-#include <ircd.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "channel.h"
+#include "numeric.h"
+#include "parse.h"
+#include "modules.h"
+#include "hash.h"
+#include "send.h"
+#include "s_conf.h"
+#include "ircd.h"
 
 static int m_cmessage(int, const char *, struct Client *, struct Client *, int, const char **);
 static int m_cprivmsg(struct Client *, struct Client *, int, const char **);

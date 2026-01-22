@@ -22,21 +22,21 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <s_log.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <hash.h>
-#include <s_newconf.h>
-#include <hook.h>
-#include <services.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "s_log.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "hash.h"
+#include "s_newconf.h"
+#include "hook.h"
+#include "services.h"
 
 static int ms_squit(struct Client *, struct Client *, int, const char **);
 static int mo_squit(struct Client *, struct Client *, int, const char **);

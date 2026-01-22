@@ -30,9 +30,9 @@
  *  on supported compilers
  */
 #define _GNU_SOURCE 1
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <rb_tools.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "rb_tools.h"
 
 
 /* rb_string_to_array()

@@ -28,22 +28,22 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <struct.h>
-#include <client.h>
-#include <s_conf.h>
-#include <s_log.h>
-#include <match.h>
-#include <bandbi.h>
-#include <send.h>
-#include <parse.h>
-#include <operhash.h>
-#include <hostmask.h>
-#include <hash.h>
-#include <reject.h>
-#include <send.h>
-#include <ircd.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "struct.h"
+#include "client.h"
+#include "s_conf.h"
+#include "s_log.h"
+#include "match.h"
+#include "bandbi.h"
+#include "send.h"
+#include "parse.h"
+#include "operhash.h"
+#include "hostmask.h"
+#include "hash.h"
+#include "reject.h"
+#include "send.h"
+#include "ircd.h"
 
 static const char bandb_add_letter[] = {
 	[BANDB_KLINE] = 'K',

@@ -22,16 +22,16 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <match.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "match.h"
 
 static int m_accept(struct Client *, struct Client *, int, const char **);
 static void build_nicklist(struct Client *, char *, char *, const char *);

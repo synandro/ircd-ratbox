@@ -22,16 +22,16 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <ratbox_lib.h>
-#include <client.h>
-#include <s_conf.h>
-#include <hostmask.h>
-#include <numeric.h>
-#include <send.h>
-#include <match.h>
-#include <ipv4_from_ipv6.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "ratbox_lib.h"
+#include "client.h"
+#include "s_conf.h"
+#include "hostmask.h"
+#include "numeric.h"
+#include "send.h"
+#include "match.h"
+#include "ipv4_from_ipv6.h"
 
 #ifdef RB_IPV6
 static uint32_t hash_ipv6(struct sockaddr *, int);

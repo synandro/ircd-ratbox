@@ -19,22 +19,22 @@
  *  USA
  */
 
-#include <ratbox_lib.h>
-#include <stdinc.h>
+#include "ratbox_lib.h"
+#include "stdinc.h"
 
-#include <struct.h>
-#include <client.h>
-#include <s_conf.h>
-#include <s_log.h>
-#include <listener.h>
-#include <sslproc.h>
-#include <s_serv.h>
-#include <ircd.h>
-#include <hash.h>
-#include <client.h>
-#include <send.h>
-#include <packet.h>
-#include <match.h>
+#include "struct.h"
+#include "client.h"
+#include "s_conf.h"
+#include "s_log.h"
+#include "listener.h"
+#include "sslproc.h"
+#include "s_serv.h"
+#include "ircd.h"
+#include "hash.h"
+#include "client.h"
+#include "send.h"
+#include "packet.h"
+#include "match.h"
 
 #define ZIPSTATS_TIME		60
 #define MAXPASSFD 4

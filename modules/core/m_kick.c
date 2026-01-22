@@ -22,18 +22,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <channel.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <modules.h>
-#include <parse.h>
-#include <hash.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "channel.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "modules.h"
+#include "parse.h"
+#include "hash.h"
+#include "s_serv.h"
 
 static int m_kick(struct Client *, struct Client *, int, const char **);
 

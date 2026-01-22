@@ -22,26 +22,26 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ratbox_lib.h>
-#include <ircd.h>
-#include <s_gline.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <dns.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <hostmask.h>
-#include <reject.h>
-#include <hash.h>
-#include <cache.h>
-#include <s_auth.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ratbox_lib.h"
+#include "ircd.h"
+#include "s_gline.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "dns.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "hostmask.h"
+#include "reject.h"
+#include "hash.h"
+#include "cache.h"
+#include "s_auth.h"
 
 static int mo_rehash(struct Client *, struct Client *, int, const char **);
 

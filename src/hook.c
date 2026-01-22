@@ -34,10 +34,10 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <hook.h>
-#include <match.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "hook.h"
+#include "match.h"
 
 struct hook_info
 {

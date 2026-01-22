@@ -22,18 +22,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <channel.h>
-#include <client.h>
-#include <hash.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "channel.h"
+#include "client.h"
+#include "hash.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "modules.h"
 
 static int m_names(struct Client *, struct Client *, int, const char **);
 

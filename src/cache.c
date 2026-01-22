@@ -30,18 +30,18 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <struct.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <client.h>
-#include <cache.h>
-#include <hash.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "struct.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "client.h"
+#include "cache.h"
+#include "hash.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
 
 static struct cachefile *user_motd = NULL;
 static struct cachefile *oper_motd = NULL;

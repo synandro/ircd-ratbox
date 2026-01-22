@@ -22,19 +22,19 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <channel.h>
-#include <hash.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <class.h>
-#include <client.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "channel.h"
+#include "hash.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "class.h"
+#include "client.h"
 
 static int m_list(struct Client *, struct Client *, int, const char **);
 static int mo_list(struct Client *, struct Client *, int, const char **);

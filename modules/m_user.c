@@ -22,17 +22,17 @@
  *  USA
  */
 
-#include <ratbox_lib.h>
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <s_user.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_log.h>
+#include "ratbox_lib.h"
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "s_user.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_log.h"
 
 static int mr_user(struct Client *, struct Client *, int, const char **);
 

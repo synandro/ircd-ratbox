@@ -21,15 +21,15 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <s_conf.h>
-#include <hostmask.h>
-#include <reject.h>
-#include <parse.h>
-#include <modules.h>
-#include <send.h>
-#include <ircd.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_conf.h"
+#include "hostmask.h"
+#include "reject.h"
+#include "parse.h"
+#include "modules.h"
+#include "send.h"
+#include "ircd.h"
 
 static int mo_unreject(struct Client *, struct Client *, int, const char **);
 

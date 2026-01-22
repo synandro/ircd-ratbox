@@ -22,17 +22,17 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <client.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "client.h"
 
-#include <string.h>
+#include "string.h"
 
 static int m_ison(struct Client *, struct Client *, int, const char **);
 

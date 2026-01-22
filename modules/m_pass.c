@@ -22,16 +22,16 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>		/* client struct */
-#include <match.h>
-#include <send.h>		/* sendto_one */
-#include <ircd.h>		/* me */
-#include <parse.h>
-#include <modules.h>
-#include <s_serv.h>
-#include <s_conf.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "send.h"
+#include "ircd.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_serv.h"
+#include "s_conf.h"
 
 static int mr_pass(struct Client *, struct Client *, int, const char **);
 

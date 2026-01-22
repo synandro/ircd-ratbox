@@ -22,17 +22,17 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
 
 static int mo_restart(struct Client *, struct Client *, int, const char **);
 

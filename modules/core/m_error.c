@@ -22,15 +22,15 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_log.h>
-#include <s_conf.h>
-#include <match.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_log.h"
+#include "s_conf.h"
+#include "match.h"
 
 static int m_error(struct Client *, struct Client *, int, const char **);
 static int ms_error(struct Client *, struct Client *, int, const char **);

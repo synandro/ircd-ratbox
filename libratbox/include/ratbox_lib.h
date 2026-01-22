@@ -4,7 +4,7 @@
 #ifndef RB_LIB_H
 #define RB_LIB_H 1
 
-#include <librb-config.h>
+#include "librb-config.h"
 #include <stdio.h>
 #include <limits.h>
 #include <stdarg.h>

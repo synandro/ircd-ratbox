@@ -22,23 +22,23 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <channel.h>
-#include <client.h>
-#include <hash.h>
-#include <hook.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>		/* captab */
-#include <s_user.h>
-#include <send.h>
-#include <whowas.h>
-#include <s_conf.h>		/* ConfigFileEntry, ConfigChannel */
-#include <s_newconf.h>
-#include <s_log.h>
-#include <ipv4_from_ipv6.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "channel.h"
+#include "client.h"
+#include "hash.h"
+#include "hook.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "s_user.h"
+#include "send.h"
+#include "whowas.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "ipv4_from_ipv6.h"
 
 struct config_channel_entry ConfigChannel;
 rb_dlink_list global_channel_list;

@@ -22,7 +22,7 @@
  *  USA
  */
 
-#include <stdinc.h>
+#include "stdinc.h"
 
 #ifdef USE_CHALLENGE
 #include <openssl/pem.h>
@@ -34,19 +34,19 @@
 #include <openssl/err.h>
 #endif
 
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <s_user.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <cache.h>
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "s_user.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "cache.h"
 
 
 #define CHALLENGE_WIDTH IRCD_BUFSIZE - (NICKLEN + HOSTLEN + 12)

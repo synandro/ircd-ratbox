@@ -22,16 +22,16 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <match.h>
-#include <send.h>
-#include <s_newconf.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "match.h"
+#include "send.h"
+#include "s_newconf.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_serv.h"
 
 static int m_locops(struct Client *, struct Client *, int, const char **);
 static int me_locops(struct Client *, struct Client *, int, const char **);

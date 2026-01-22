@@ -21,10 +21,10 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-#include <stdlib.h>
-#include <stdinc.h>
+#include "stdlib.h"
+#include "stdinc.h"
 
-#include <ircd_getopt.h>
+#include "ircd_getopt.h"
 
 #define OPTCHAR '-'
 

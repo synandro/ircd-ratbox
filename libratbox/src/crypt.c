@@ -26,8 +26,8 @@
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 
 
 #ifndef NEED_CRYPT

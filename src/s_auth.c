@@ -32,23 +32,23 @@
  *     any messages from it.
  *     --Bleep	Thomas Helvey <tomh@inxpress.net>
  */
-#include <stdinc.h>
-#include <setup.h>
-#include <ratbox_lib.h>
-#include <struct.h>
-#include <s_auth.h>
-#include <s_conf.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <packet.h>
-#include <s_log.h>
-#include <s_stats.h>
-#include <send.h>
-#include <hook.h>
-#include <dns.h>
-#include <substitution.h>
+#include "stdinc.h"
+#include "setup.h"
+#include "ratbox_lib.h"
+#include "struct.h"
+#include "s_auth.h"
+#include "s_conf.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "packet.h"
+#include "s_log.h"
+#include "s_stats.h"
+#include "send.h"
+#include "hook.h"
+#include "dns.h"
+#include "substitution.h"
 
 #define RBL_FLAG_ISV4 0x1	
 #define RBL_FLAG_ISV6 0x2

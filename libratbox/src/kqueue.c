@@ -23,10 +23,10 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <event-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "event-int.h"
 
 #if defined(HAVE_SYS_EVENT_H) && (HAVE_KEVENT)
 

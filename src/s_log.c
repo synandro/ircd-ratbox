@@ -29,15 +29,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <s_log.h>
-#include <s_conf.h>
-#include <send.h>
-#include <client.h>
-#include <s_serv.h>
-#include <match.h>
-#include <ircd.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_log.h"
+#include "s_conf.h"
+#include "send.h"
+#include "client.h"
+#include "s_serv.h"
+#include "match.h"
+#include "ircd.h"
 
 static FILE *log_main;
 static FILE *log_user;

@@ -22,18 +22,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <modules.h>
-#include <hash.h>
-#include <cache.h>
-#include <match.h>
-#include <client.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "modules.h"
+#include "hash.h"
+#include "cache.h"
+#include "match.h"
+#include "client.h"
 
 static int m_help(struct Client *, struct Client *, int, const char **);
 static int mo_help(struct Client *, struct Client *, int, const char **);

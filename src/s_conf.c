@@ -22,34 +22,34 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <s_serv.h>
-#include <s_stats.h>
-#include <channel.h>
-#include <class.h>
-#include <client.h>
-#include <hash.h>
-#include <match.h>
-#include <ratbox_lib.h>
-#include <ircd.h>
-#include <listener.h>
-#include <hostmask.h>
-#include <hook.h>
-#include <modules.h>
-#include <numeric.h>
-#include <s_log.h>
-#include <send.h>
-#include <s_gline.h>
-#include <reject.h>
-#include <cache.h>
-#include <dns.h>
-#include <operhash.h>
-#include <bandbi.h>
-#include <newconf.h>
-#include <s_auth.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "s_serv.h"
+#include "s_stats.h"
+#include "channel.h"
+#include "class.h"
+#include "client.h"
+#include "hash.h"
+#include "match.h"
+#include "ratbox_lib.h"
+#include "ircd.h"
+#include "listener.h"
+#include "hostmask.h"
+#include "hook.h"
+#include "modules.h"
+#include "numeric.h"
+#include "s_log.h"
+#include "send.h"
+#include "s_gline.h"
+#include "reject.h"
+#include "cache.h"
+#include "dns.h"
+#include "operhash.h"
+#include "bandbi.h"
+#include "newconf.h"
+#include "s_auth.h"
 
 
 typedef enum _cfc

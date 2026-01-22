@@ -28,23 +28,23 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <send.h>
-#include <client.h>
-#include <class.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_log.h>
-#include <s_serv.h>
-#include <match.h>
-#include <ratbox_lib.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <operhash.h>
-#include <bandbi.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "send.h"
+#include "client.h"
+#include "class.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_log.h"
+#include "s_serv.h"
+#include "match.h"
+#include "ratbox_lib.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "operhash.h"
+#include "bandbi.h"
 
 static int mo_xline(struct Client *client_p, struct Client *source_p, int parc, const char *parv[]);
 static int me_xline(struct Client *client_p, struct Client *source_p, int parc, const char *parv[]);

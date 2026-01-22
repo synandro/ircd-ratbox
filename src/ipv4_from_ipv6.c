@@ -32,8 +32,8 @@
  *
  */
 
-#include <stdinc.h>
-#include <ipv4_from_ipv6.h>
+#include "stdinc.h"
+#include "ipv4_from_ipv6.h"
 
 #ifdef RB_IPV6
 bool

@@ -18,8 +18,8 @@
  * Network, Inc., and their contributors.
  *
  */
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 
 /* Enable both of these to debug patricia.c
  * #define NOTYET 1

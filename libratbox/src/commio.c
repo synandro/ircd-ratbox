@@ -21,11 +21,11 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <commio-ssl.h>
-#include <event-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "commio-ssl.h"
+#include "event-int.h"
 #ifdef HAVE_SYS_UIO_H
 #include <sys/uio.h>
 #endif

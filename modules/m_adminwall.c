@@ -21,16 +21,16 @@
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
  *  USA
  */
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <s_newconf.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "s_newconf.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_serv.h"
 
 
 static int mo_adminwall(struct Client *, struct Client *, int, const char **);

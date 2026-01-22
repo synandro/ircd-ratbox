@@ -22,15 +22,15 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <match.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "match.h"
+#include "parse.h"
+#include "modules.h"
 
 static int m_userhost(struct Client *, struct Client *, int, const char **);
 

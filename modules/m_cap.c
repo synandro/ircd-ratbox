@@ -28,17 +28,17 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_serv.h>
-#include <s_user.h>
-#include <send.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_serv.h"
+#include "s_user.h"
+#include "send.h"
 
 typedef int (*bqcmp) (const void *, const void *);
 

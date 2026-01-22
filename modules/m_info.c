@@ -22,20 +22,20 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <ratbox_lib.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <hook.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <send.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <modules.h>
-#include <version.h>
+#include "stdinc.h"
+#include "ratbox_lib.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "hook.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "send.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "modules.h"
+#include "version.h"
 
 static void send_conf_options(struct Client *source_p);
 static void send_birthdate_online_time(struct Client *source_p);

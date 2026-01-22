@@ -22,20 +22,20 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <match.h>
-#include <numeric.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <s_serv.h>
-#include <send.h>
-#include <parse.h>
-#include <hash.h>
-#include <modules.h>
-#include <sslproc.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "match.h"
+#include "numeric.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "s_serv.h"
+#include "send.h"
+#include "parse.h"
+#include "hash.h"
+#include "modules.h"
+#include "sslproc.h"
 
 static int mo_connect(struct Client *, struct Client *, int, const char **);
 static int ms_connect(struct Client *, struct Client *, int, const char **);

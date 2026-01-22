@@ -21,13 +21,13 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 
 #ifdef HAVE_OPENSSL
 
-#include <commio-int.h>
-#include <commio-ssl.h>
+#include "commio-int.h"
+#include "commio-ssl.h"
 #include <openssl/ssl.h>
 #include <openssl/dh.h>
 #include <openssl/err.h>

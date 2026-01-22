@@ -21,23 +21,23 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <channel.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <hash.h>
-#include <s_log.h>
-#include <match.h>
-#include <operhash.h>
-#include <bandbi.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "channel.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "hash.h"
+#include "s_log.h"
+#include "match.h"
+#include "operhash.h"
+#include "bandbi.h"
 
 static int mo_resv(struct Client *, struct Client *, int, const char **);
 static int me_resv(struct Client *, struct Client *, int, const char **);

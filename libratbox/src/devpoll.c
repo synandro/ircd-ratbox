@@ -22,9 +22,9 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
 #include <fcntl.h>
 
 #if defined(HAVE_DEVPOLL) && (HAVE_SYS_DEVPOLL_H)

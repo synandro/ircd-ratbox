@@ -27,24 +27,24 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
+#include "stdinc.h"
 
 #ifdef ENABLE_SERVICES
-#include <struct.h>
-#include <send.h>
-#include <client.h>
-#include <channel.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_conf.h>
-#include <hash.h>
-#include <parse.h>
-#include <hook.h>
-#include <modules.h>
-#include <match.h>
-#include <whowas.h>
-#include <monitor.h>
-#include <s_serv.h>
+#include "struct.h"
+#include "send.h"
+#include "client.h"
+#include "channel.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_conf.h"
+#include "hash.h"
+#include "parse.h"
+#include "hook.h"
+#include "modules.h"
+#include "match.h"
+#include "whowas.h"
+#include "monitor.h"
+#include "s_serv.h"
 
 static int me_su(struct Client *, struct Client *, int, const char **);
 static int me_login(struct Client *, struct Client *, int, const char **);

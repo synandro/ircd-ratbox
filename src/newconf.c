@@ -22,35 +22,35 @@
  */
 
 
-#include <ratbox_lib.h>
-#include <stdinc.h>
+#include "ratbox_lib.h"
+#include "stdinc.h"
 #ifdef USE_CHALLENGE
-#include <openssl/pem.h>
-#include <openssl/rsa.h>
+#include "openssl/pem.h"
+#include "openssl/rsa.h"
 #endif
 
 
-#include <struct.h>
-#include <client.h>
-#include <s_log.h>
-#include <s_conf.h>
-#include <s_user.h>
-#include <s_newconf.h>
-#include <hostmask.h>
-#include <send.h>
-#include <ircd.h>
-#include <newconf.h>
-#include <modules.h>
-#include <match.h>
-#include <class.h>
-#include <listener.h>
-#include <cache.h>
-#include <reject.h>
-#include <channel.h>
-#include <hash.h>
-#include <sslproc.h>
-#include <whowas.h>
-#include <s_auth.h>
+#include "struct.h"
+#include "client.h"
+#include "s_log.h"
+#include "s_conf.h"
+#include "s_user.h"
+#include "s_newconf.h"
+#include "hostmask.h"
+#include "send.h"
+#include "ircd.h"
+#include "newconf.h"
+#include "modules.h"
+#include "match.h"
+#include "class.h"
+#include "listener.h"
+#include "cache.h"
+#include "reject.h"
+#include "channel.h"
+#include "hash.h"
+#include "sslproc.h"
+#include "whowas.h"
+#include "s_auth.h"
 
 #define CF_TYPE(x) ((x) & CF_MTYPE)
 

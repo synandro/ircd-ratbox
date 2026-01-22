@@ -21,14 +21,14 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
 #if !defined(HAVE_OPENSSL) && !defined(HAVE_GNUTLS) && !defined(HAVE_MBEDTLS)
 
-#include <arc4random.h>
+#include "arc4random.h"
 
-#include <commio-int.h>
-#include <commio-ssl.h>
+#include "commio-int.h"
+#include "commio-ssl.h"
 
 
 rb_ssl_ctx *

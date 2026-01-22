@@ -31,15 +31,15 @@
  */
 
 /* List of ircd includes from ../include/ */
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <match.h>
-#include <numeric.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "match.h"
+#include "numeric.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
 
 static int mo_testmask(struct Client *client_p, struct Client *source_p,
 		       int parc, const char *parv[]);

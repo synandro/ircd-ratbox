@@ -22,20 +22,20 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_serv.h>
-#include <send.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <hook.h>
-#include <modules.h>
-#include <cache.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_serv.h"
+#include "send.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "hook.h"
+#include "modules.h"
+#include "cache.h"
+#include "s_log.h"
 
 
 static int m_links(struct Client *, struct Client *, int, const char **);

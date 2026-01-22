@@ -21,18 +21,18 @@
  *  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301
  *  USA
  */
-#include <stdinc.h>
-#include <struct.h>
-#include <s_conf.h>
-#include <s_serv.h>
-#include <client.h>
-#include <ircd.h>
-#include <parse.h>
-#include <packet.h>
-#include <match.h>
-#include <hook.h>
-#include <send.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "s_conf.h"
+#include "s_serv.h"
+#include "client.h"
+#include "ircd.h"
+#include "parse.h"
+#include "packet.h"
+#include "match.h"
+#include "hook.h"
+#include "send.h"
+#include "s_log.h"
 
 static void client_dopacket(struct Client *client_p, char *buffer, size_t length);
 

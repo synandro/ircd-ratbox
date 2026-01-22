@@ -22,17 +22,17 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_conf.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_conf.h"
+#include "s_serv.h"
 
 static int m_away(struct Client *, struct Client *, int, const char **);
 

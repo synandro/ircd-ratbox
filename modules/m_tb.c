@@ -28,18 +28,18 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <send.h>
-#include <channel.h>
-#include <client.h>
-#include <ircd.h>
-#include <s_conf.h>
-#include <parse.h>
-#include <match.h>
-#include <modules.h>
-#include <hash.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "send.h"
+#include "channel.h"
+#include "client.h"
+#include "ircd.h"
+#include "s_conf.h"
+#include "parse.h"
+#include "match.h"
+#include "modules.h"
+#include "hash.h"
+#include "s_serv.h"
 
 static int ms_tb(struct Client *client_p, struct Client *source_p, int parc, const char *parv[]);
 

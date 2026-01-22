@@ -22,17 +22,17 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <ircd.h>
-#include <send.h>
-#include <numeric.h>
-#include <hook.h>
-#include <s_serv.h>		/* hunt_server */
-#include <parse.h>
-#include <modules.h>
-#include <s_conf.h>
-#include <cache.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "ircd.h"
+#include "send.h"
+#include "numeric.h"
+#include "hook.h"
+#include "s_serv.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_conf.h"
+#include "cache.h"
 
 static int m_motd(struct Client *, struct Client *, int, const char **);
 static int mo_motd(struct Client *, struct Client *, int, const char **);

@@ -27,15 +27,15 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <send.h>
-#include <ircd.h>
-#include <s_serv.h>
-#include <hash.h>
-#include <parse.h>
-#include <modules.h>
-#include <match.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "send.h"
+#include "ircd.h"
+#include "s_serv.h"
+#include "hash.h"
+#include "parse.h"
+#include "modules.h"
+#include "match.h"
 
 static int ms_encap(struct Client *client_p, struct Client *source_p, int parc, const char *parv[]);
 

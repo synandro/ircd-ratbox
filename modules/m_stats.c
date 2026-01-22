@@ -22,34 +22,34 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <ratbox_lib.h>
-#include <class.h>		/* report_classes */
-#include <client.h>		/* Client */
-#include <channel.h>
-#include <match.h>
-#include <ircd.h>		/* me */
-#include <listener.h>		/* show_ports */
-#include <s_gline.h>
-#include <hostmask.h>		/* report_mtrie_conf_links */
-#include <numeric.h>		/* ERR_xxx */
-#include <send.h>		/* sendto_one */
-#include <s_conf.h>		/* ConfItem */
-#include <s_serv.h>		/* hunt_server */
-#include <s_stats.h>		/* tstats */
-#include <s_user.h>		/* show_opers */
-#include <parse.h>
-#include <hook.h>
-#include <modules.h>
-#include <s_newconf.h>
-#include <hash.h>
-#include <dns.h>
-#include <reject.h>
-#include <whowas.h>
-#include <operhash.h>
-#include <scache.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "ratbox_lib.h"
+#include "class.h"
+#include "client.h"
+#include "channel.h"
+#include "match.h"
+#include "ircd.h"
+#include "listener.h"
+#include "s_gline.h"
+#include "hostmask.h"
+#include "numeric.h"
+#include "send.h"
+#include "s_conf.h"
+#include "s_serv.h"
+#include "s_stats.h"
+#include "s_user.h"
+#include "parse.h"
+#include "hook.h"
+#include "modules.h"
+#include "s_newconf.h"
+#include "hash.h"
+#include "dns.h"
+#include "reject.h"
+#include "whowas.h"
+#include "operhash.h"
+#include "scache.h"
+#include "s_log.h"
 
 #ifdef HAVE_STRUCT_MALLINFO
 #include <malloc.h>

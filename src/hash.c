@@ -22,20 +22,20 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <hash.h>
-#include <s_conf.h>
-#include <channel.h>
-#include <client.h>
-#include <match.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <cache.h>
-#include <s_newconf.h>
-#include <s_log.h>
-#include <s_stats.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "hash.h"
+#include "s_conf.h"
+#include "channel.h"
+#include "client.h"
+#include "match.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "cache.h"
+#include "s_newconf.h"
+#include "s_log.h"
+#include "s_stats.h"
 
 
 /* Magic value for FNV hash functions */

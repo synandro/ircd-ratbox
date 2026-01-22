@@ -22,14 +22,14 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
 
 static int mo_close(struct Client *, struct Client *, int, const char **);
 

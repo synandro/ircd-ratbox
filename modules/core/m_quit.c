@@ -22,14 +22,14 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <send.h>
-#include <parse.h>
-#include <modules.h>
-#include <s_conf.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "send.h"
+#include "parse.h"
+#include "modules.h"
+#include "s_conf.h"
 
 static int m_quit(struct Client *, struct Client *, int, const char **);
 static int mr_quit(struct Client *, struct Client *, int, const char **);

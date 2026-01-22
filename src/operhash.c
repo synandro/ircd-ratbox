@@ -28,12 +28,12 @@
  * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-#include <ratbox_lib.h>
-#include <stdinc.h>
-#include <struct.h>
-#include <match.h>
-#include <hash.h>
-#include <operhash.h>
+#include "ratbox_lib.h"
+#include "stdinc.h"
+#include "struct.h"
+#include "match.h"
+#include "hash.h"
+#include "operhash.h"
 
 struct operhash_entry
 {

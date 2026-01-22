@@ -30,23 +30,23 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <hash.h>
-#include <dns.h>
-#include <s_conf.h>
-#include <s_newconf.h>
-#include <client.h>
-#include <s_serv.h>
-#include <send.h>
-#include <hostmask.h>
-#include <newconf.h>
-#include <ratbox_lib.h>
-#include <match.h>
-#include <ircd.h>
-#include <class.h>
-#include <s_gline.h>
-#include <s_log.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "hash.h"
+#include "dns.h"
+#include "s_conf.h"
+#include "s_newconf.h"
+#include "client.h"
+#include "s_serv.h"
+#include "send.h"
+#include "hostmask.h"
+#include "newconf.h"
+#include "ratbox_lib.h"
+#include "match.h"
+#include "ircd.h"
+#include "class.h"
+#include "s_gline.h"
+#include "s_log.h"
 
 rb_dlink_list shared_conf_list;
 rb_dlink_list cluster_conf_list;

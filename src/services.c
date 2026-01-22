@@ -21,25 +21,25 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <parse.h>
-#include <client.h>
-#include <channel.h>
-#include <hash.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <s_log.h>
-#include <s_stats.h>
-#include <send.h>
-#include <s_conf.h>
-#include <memory.h>
-#include <s_serv.h>
-#include <hook.h>
-#include <s_user.h>
-#include <match.h>
-#include <scache.h>
-#include <services.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "parse.h"
+#include "client.h"
+#include "channel.h"
+#include "hash.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "s_log.h"
+#include "s_stats.h"
+#include "send.h"
+#include "s_conf.h"
+#include "memory.h"
+#include "s_serv.h"
+#include "hook.h"
+#include "s_user.h"
+#include "match.h"
+#include "scache.h"
+#include "services.h"
 
 #ifdef ENABLE_OCF_SERVICES
 

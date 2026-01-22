@@ -40,10 +40,10 @@
  *  USA
  */
 
-#include <libratbox_config.h>
-#include <ratbox_lib.h>
-#include <commio-int.h>
-#include <event-int.h>
+#include "libratbox_config.h"
+#include "ratbox_lib.h"
+#include "commio-int.h"
+#include "event-int.h"
 
 #define EV_NAME_LEN 33
 static char last_event_ran[EV_NAME_LEN];

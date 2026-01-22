@@ -22,18 +22,18 @@
  *  USA
  */
 
-#include <stdinc.h>
-#include <struct.h>
-#include <client.h>
-#include <ircd.h>
-#include <numeric.h>
-#include <send.h>
-#include <match.h>
-#include <parse.h>
-#include <modules.h>
-#include <hash.h>
-#include <s_conf.h>
-#include <s_serv.h>
+#include "stdinc.h"
+#include "struct.h"
+#include "client.h"
+#include "ircd.h"
+#include "numeric.h"
+#include "send.h"
+#include "match.h"
+#include "parse.h"
+#include "modules.h"
+#include "hash.h"
+#include "s_conf.h"
+#include "s_serv.h"
 
 static int m_ping(struct Client *, struct Client *, int, const char **);
 static int ms_ping(struct Client *, struct Client *, int, const char **);
