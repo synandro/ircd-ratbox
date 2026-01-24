@@ -224,9 +224,16 @@ rb_linebuf_copy_line(buf_head_t * bufhead, buf_line_t * bufline, char *data, int
 		return -1;
 
 	/* This is the ~overflow case..This doesn't happen often.. */
-	if(cpylen > (BUF_DATA_SIZE - bufline->len - 1))
-	{
-		memcpy(bufch, ch, (BUF_DATA_SIZE - bufline->len - 1));
+	size_t avail = 0;
+	if(bufline->len < (BUF_DATA_SIZE - 1))
+		avail = BUF_DATA_SIZE - bufline->len - 1;
+
+	if(clen > avail)
+ 	{
+ 		size_t old_len = bufline->len;
+ 
+		clen = avail;
+		memcpy(bufch, ch, clen);
 		bufline->buf[BUF_DATA_SIZE - 1] = '\0';
 		bufch = bufline->buf + BUF_DATA_SIZE - 2;
 		while(cpylen && (*bufch == '\r' || *bufch == '\n'))
@@ -237,7 +244,7 @@ rb_linebuf_copy_line(buf_head_t * bufhead, buf_line_t * bufline, char *data, int
 		}
 		bufline->terminated = 1;
 		bufline->len = BUF_DATA_SIZE - 1;
-		bufhead->len += BUF_DATA_SIZE - 1;
+		bufhead->len += bufline->len - old_len;
 		return clen;
 	}
 
@@ -297,15 +304,21 @@ rb_linebuf_copy_raw(buf_head_t * bufhead, buf_line_t * bufline, char *data, int 
 		return -1;
 
 	/* This is the overflow case..This doesn't happen often.. */
-	if(cpylen > (BUF_DATA_SIZE - bufline->len - 1))
-	{
-		clen = BUF_DATA_SIZE - bufline->len - 1;
+	size_t avail = 0;
+	if(bufline->len < (BUF_DATA_SIZE - 1))
+		avail = BUF_DATA_SIZE - bufline->len - 1;
+
+	if(clen > avail)
+ 	{
+ 		size_t old_len = bufline->len;
+ 
+		clen = avail;
 		memcpy(bufch, ch, clen);
 		bufline->buf[BUF_DATA_SIZE - 1] = '\0';
 		bufch = bufline->buf + BUF_DATA_SIZE - 2;
 		bufline->terminated = 1;
 		bufline->len = BUF_DATA_SIZE - 1;
-		bufhead->len += BUF_DATA_SIZE - 1;
+		bufhead->len += bufline->len - old_len;
 		return clen;
 	}
 

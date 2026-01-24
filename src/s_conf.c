@@ -940,6 +940,13 @@ add_temp_kline(struct ConfItem *aconf)
 void
 add_temp_dline(struct ConfItem *aconf)
 {
+	if(!add_dline(aconf))
+	{
+		ilog(L_MAIN, "Invalid Dline %s ignored", aconf->host);
+		free_conf(aconf);
+		return;
+	}
+
 	if(aconf->hold >= rb_current_time() + (10080 * 60))
 	{
 		rb_dlinkAddAlloc(aconf, &temp_dlines[TEMP_WEEK]);
@@ -962,7 +969,6 @@ add_temp_dline(struct ConfItem *aconf)
 	}
 
 	aconf->flags |= CONF_FLAGS_TEMPORARY;
-	add_dline(aconf);
 }
 
 /* expire_tkline()
