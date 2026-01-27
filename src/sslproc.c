@@ -630,7 +630,7 @@ void
 send_new_ssl_certs(const char *ssl_cert, const char *ssl_private_key, const char *ssl_dh_params)
 {
 	rb_dlink_node *ptr;
-	if(ssl_cert == NULL || ssl_private_key == NULL || ssl_dh_params == NULL)
+	if(ssl_cert == NULL || ssl_private_key == NULL)
 	{
 		ircd_ssl_ok = 0;
 		return;
@@ -638,7 +638,7 @@ send_new_ssl_certs(const char *ssl_cert, const char *ssl_private_key, const char
 	RB_DLINK_FOREACH(ptr, ssl_daemons.head)
 	{
 		ssl_ctl_t *ctl = ptr->data;
-		send_new_ssl_certs_one(ctl, ssl_cert, ssl_private_key, ssl_dh_params);
+		send_new_ssl_certs_one(ctl, ssl_cert, ssl_private_key, ssl_dh_params != NULL ? ssl_dh_params : "");
 	}
 }
 
