@@ -142,7 +142,7 @@ size_t rb_zstring_serialized(rb_zstring_t *zs, void **buf, size_t *buflen)
         uint8_t *p;
         size_t alloclen = sizeof(uint16_t) + zs->len;
 
-        p = rb_malloc(sizeof(alloclen));          
+        p = rb_malloc(alloclen);          
         memcpy(p, &zs->len, sizeof(uint16_t));
         p += sizeof(uint16_t);
         memcpy(p, zs->data, zs->len);
@@ -159,7 +159,7 @@ size_t rb_zstring_deserialize(rb_zstring_t *zs, void *buf)
 	if(zs->len == 0)
 	{
 		zs->data = NULL;
-		return sizeof(uint16_t);
+		return -1;
 	}
 	zs->data = rb_malloc(zs->len);
 	memcpy(zs->data, p, zs->len);
