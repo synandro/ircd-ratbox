@@ -163,7 +163,7 @@ uint32_to_buf(void *buf, uint32_t x)
 
 #ifdef HAVE_ZLIB
 static void *
-ssld_alloc(void *unused, size_t count, size_t size)
+ssld_alloc(void *unused, unsigned int count, unsigned int size)
 {
 	return rb_malloc(count * size);
 }
