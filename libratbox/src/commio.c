@@ -214,17 +214,11 @@ rb_set_nb(rb_fde_t *F)
 
 	if((res = rb_setup_fd(F)))
 		return res;
-#ifdef O_NONBLOCK
+
 	nonb |= O_NONBLOCK;
 	res = fcntl(fd, F_GETFL, 0);
 	if(-1 == res || fcntl(fd, F_SETFL, res | nonb) == -1)
 		return 0;
-#else
-	nonb = 1;
-	res = 0;
-	if(ioctl(fd, FIONBIO, (char *)&nonb) == -1)
-		return 0;
-#endif
 
 	return 1;
 }
@@ -532,10 +526,10 @@ rb_errstr(int error)
 	return rb_err_str[error];
 }
 
-
 int
 rb_socketpair(int family, int sock_type, int proto, rb_fde_t **F1, rb_fde_t **F2, const char *note)
 {
+#ifdef HAVE_SOCKETPAIR
 	int nfd[2];
 	if(number_fd >= rb_maxconnections)
 	{
@@ -543,16 +537,7 @@ rb_socketpair(int family, int sock_type, int proto, rb_fde_t **F1, rb_fde_t **F2
 		return -1;
 	}
 
-#ifdef HAVE_SOCKETPAIR
 	if(socketpair(family, sock_type, proto, nfd))
-#else
-	if(sock_type == SOCK_DGRAM)
-	{
-		return rb_inet_socketpair_udp(F1, F2);
-	}
-
-	if(rb_inet_socketpair(AF_INET, sock_type, proto, nfd))
-#endif
 		return -1;
 
 	*F1 = rb_open(nfd[0], RB_FD_SOCKET, note);
@@ -589,6 +574,10 @@ rb_socketpair(int family, int sock_type, int proto, rb_fde_t **F1, rb_fde_t **F2
 	}
 
 	return 0;
+#else
+	errno = EOPNOTSUPP;
+	return -1;
+#endif
 }
 
 
@@ -1444,197 +1433,6 @@ rb_inet_ntop_sock(struct sockaddr *src, char *dst, rb_socklen_t size)
 	}
 }
 
-#ifndef HAVE_SOCKETPAIR
-
-/* mostly based on perl's emulation of socketpair udp */
-static int
-rb_inet_socketpair_udp(rb_fde_t **newF1, rb_fde_t **newF2)
-{
-	struct sockaddr_in addr[2];
-	rb_socklen_t size = sizeof(struct sockaddr_in);
-	rb_fde_t *F[2];
-	unsigned int fd[2];
-	int i, got;
-	unsigned short port;
-
-	memset(&addr, 0, sizeof(addr));
-
-	for(i = 0; i < 2; i++)
-	{
-		F[i] = rb_socket(AF_INET, SOCK_DGRAM, 0, "udp socketpair");
-		if(F[i] == NULL)
-			goto failed;
-		addr[i].sin_family = AF_INET;
-		addr[i].sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-		addr[i].sin_port = 0;
-		if(bind(rb_get_fd(F[i]), (struct sockaddr *)&addr[i], sizeof(struct sockaddr_in)))
-			goto failed;
-		fd[i] = rb_get_fd(F[i]);
-	}
-
-	for(i = 0; i < 2; i++)
-	{
-		if(getsockname(fd[i], (struct sockaddr *)&addr[i], &size))
-			goto failed;
-		if(size != sizeof(struct sockaddr_in))
-			goto failed;
-		if(connect(fd[!i], (struct sockaddr *)&addr[i], sizeof(struct sockaddr_in)) == -1)
-			goto failed;
-	}
-
-	for(i = 0; i < 2; i++)
-	{
-		port = addr[i].sin_port;
-		got = rb_write(F[i], &port, sizeof(port));
-		if(got != sizeof(port))
-		{
-			if(got == -1)
-				goto failed;
-			goto abort_failed;
-		}
-	}
-
-
-	struct timeval wait = { 0, 100000 };
-
-	int max = fd[1] > fd[0] ? fd[1] : fd[0];
-	fd_set rset;
-	FD_ZERO(&rset);
-	FD_SET(fd[0], &rset);
-	FD_SET(fd[1], &rset);
-	got = select(max + 1, &rset, NULL, NULL, &wait);
-	if(got != 2 || !FD_ISSET(fd[0], &rset) || !FD_ISSET(fd[1], &rset))
-	{
-		if(got == -1)
-			goto failed;
-		goto abort_failed;
-	}
-
-	struct sockaddr_in readfrom;
-	unsigned short buf[2];
-	for(i = 0; i < 2; i++)
-	{
-		int flag = 0;
-#ifdef MSG_DONTWAIT
-		flag = MSG_DONTWAIT;
-#endif
-		got = recvfrom(rb_get_fd(F[i]), (char *)&buf, sizeof(buf), flag,
-			       (struct sockaddr *)&readfrom, &size);
-		if(got == -1)
-			goto failed;
-		if(got != sizeof(port)
-		   || size != sizeof(struct sockaddr_in)
-		   || buf[0] != (unsigned short)addr[!i].sin_port
-		   || readfrom.sin_family != addr[!i].sin_family
-		   || readfrom.sin_addr.s_addr != addr[!i].sin_addr.s_addr
-		   || readfrom.sin_port != addr[!i].sin_port)
-			goto abort_failed;
-	}
-
-	*newF1 = F[0];
-	*newF2 = F[1];
-	return 0;
-
-      abort_failed:
-	errno = ECONNABORTED;
-      failed:
-	int o_errno = errno;
-	if(F[0] != NULL)
-		rb_close(F[0]);
-	if(F[1] != NULL)
-		rb_close(F[1]);
-	errno = o_errno;
-	return -1;
-}
-
-
-int
-rb_inet_socketpair(int family, int type, int protocol, int fd[2])
-{
-	int listener = -1;
-	int connector = -1;
-	int acceptor = -1;
-	struct sockaddr_in listen_addr;
-	struct sockaddr_in connect_addr;
-	rb_socklen_t size;
-
-	if(protocol || family != AF_INET)
-	{
-		errno = EAFNOSUPPORT;
-		return -1;
-	}
-	if(!fd)
-	{
-		errno = EINVAL;
-		return -1;
-	}
-
-	listener = socket(AF_INET, type, 0);
-	if(listener == -1)
-		return -1;
-	memset(&listen_addr, 0, sizeof(listen_addr));
-	listen_addr.sin_family = AF_INET;
-	listen_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-	listen_addr.sin_port = 0;	/* kernel choses port.	*/
-	if(bind(listener, (struct sockaddr *)&listen_addr, sizeof(listen_addr)) == -1)
-		goto tidy_up_and_fail;
-	if(listen(listener, 1) == -1)
-		goto tidy_up_and_fail;
-
-	connector = socket(AF_INET, type, 0);
-	if(connector == -1)
-		goto tidy_up_and_fail;
-	/* We want to find out the port number to connect to.  */
-	size = sizeof(connect_addr);
-	if(getsockname(listener, (struct sockaddr *)&connect_addr, &size) == -1)
-		goto tidy_up_and_fail;
-	if(size != sizeof(connect_addr))
-		goto abort_tidy_up_and_fail;
-	if(connect(connector, (struct sockaddr *)&connect_addr, sizeof(connect_addr)) == -1)
-		goto tidy_up_and_fail;
-
-	size = sizeof(listen_addr);
-	acceptor = accept(listener, (struct sockaddr *)&listen_addr, &size);
-	if(acceptor == -1)
-		goto tidy_up_and_fail;
-	if(size != sizeof(listen_addr))
-		goto abort_tidy_up_and_fail;
-	close(listener);
-	/* Now check we are talking to ourself by matching port and host on the
-	   two sockets.	 */
-	if(getsockname(connector, (struct sockaddr *)&connect_addr, &size) == -1)
-		goto tidy_up_and_fail;
-	if(size != sizeof(connect_addr)
-	   || listen_addr.sin_family != connect_addr.sin_family
-	   || listen_addr.sin_addr.s_addr != connect_addr.sin_addr.s_addr
-	   || listen_addr.sin_port != connect_addr.sin_port)
-	{
-		goto abort_tidy_up_and_fail;
-	}
-	fd[0] = connector;
-	fd[1] = acceptor;
-	return 0;
-
-      abort_tidy_up_and_fail:
-	errno = EINVAL;		/* I hope this is portable and appropriate.  */
-
-      tidy_up_and_fail:
-	{
-		int save_errno = errno;
-		if(listener != -1)
-			close(listener);
-		if(connector != -1)
-			close(connector);
-		if(acceptor != -1)
-			close(acceptor);
-		errno = save_errno;
-		return -1;
-	}
-}
-
-#endif
-
-
 static void (*setselect_handler) (rb_fde_t *, unsigned int, PF *, void *);
 static int (*select_handler) (long);
 static int (*setup_fd_handler) (rb_fde_t *);
@@ -1655,26 +1453,6 @@ rb_unsupported_event(void)
 {
 	return 0;
 }
-#if 0
-static int
-try_libevent(void)
-{
-	return -1;
-	if(!rb_init_netio_libevent())
-	{
-		setselect_handler = rb_setselect_libevent;
-		select_handler = rb_select_libevent;
-		setup_fd_handler = rb_setup_fd_libevent;
-		io_sched_event = rb_libevent_sched_event;
-		io_unsched_event = rb_libevent_unsched_event;
-		io_supports_event = rb_libevent_supports_event;
-		io_init_event = rb_libevent_init_event;
-		rb_strlcpy(iotype, "libevent", sizeof(iotype));
-		return 0;
-	}
-	return -1;
-}
-#endif
 
 static int
 try_kqueue(void)
