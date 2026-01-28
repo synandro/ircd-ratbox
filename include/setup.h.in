@@ -8,9 +8,6 @@
    */
 #undef CRAY_STACKSEG_END
 
-/* This is a Cygwin system */
-#undef CYGWIN
-
 /* Define to 1 if using `alloca.c'. */
 #undef C_ALLOCA
 
@@ -255,9 +252,6 @@
 /* Define to the shared library suffix, say, ".dylib". */
 #undef LT_SHARED_EXT
 
-/* This is a MinGW system */
-#undef MINGW
-
 /* Prefix where modules are installed. */
 #undef MODULE_DIR
 
@@ -350,9 +344,6 @@
 
 /* Version number of package */
 #undef VERSION
-
-/* This is a Windows system */
-#undef WINDOWS
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */
