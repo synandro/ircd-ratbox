@@ -764,8 +764,7 @@ ssl_process_accept(mod_ctl_t * ctl, mod_ctl_buf_t * ctlb)
 	}
 	id = buf_to_uint32(&ctlb->buf[1]);
 
-	if(id > 0)
-		conn_add_id_hash(conn, id);
+	conn_add_id_hash(conn, id);
 	SetSSL(conn);
 
 	rb_ssl_attach_ctx_to_fde(ssl_server_ctx, conn->mod_fd);
@@ -795,9 +794,8 @@ ssl_process_connect(mod_ctl_t * ctl, mod_ctl_buf_t * ctlb)
 	}
 
 	id = buf_to_uint32(&ctlb->buf[1]);
-
-	if(id > 0)
-		conn_add_id_hash(conn, id);
+	conn_add_id_hash(conn, id);
+	
 	SetSSL(conn);
 
 	rb_ssl_attach_ctx_to_fde(ssl_client_ctx, conn->mod_fd);
@@ -820,9 +818,6 @@ process_stats(mod_ctl_t * ctl, mod_ctl_buf_t * ctlb)
 	uint32_t id;
 
 	id = buf_to_uint32(&ctlb->buf[1]);
-
-	if(id == 0)
-		return;
 
 	odata = &ctlb->buf[5];
 	conn = conn_find_by_id(id);
@@ -1034,8 +1029,7 @@ send_nossl_support(mod_ctl_t * ctl, mod_ctl_buf_t * ctlb)
 		}
 		id = buf_to_uint32(&ctlb->buf[1]);
 
-		if(id > 0)
-			conn_add_id_hash(conn, id);
+		conn_add_id_hash(conn, id);
 		close_conn(conn, WAIT_PLAIN, "libratbox reports no SSL/TLS support");
 	}
 	mod_cmd_write_queue(ctl, nossl_cmd, strlen(nossl_cmd));
@@ -1064,8 +1058,7 @@ send_nozlib_support(mod_ctl_t * ctl, mod_ctl_buf_t * ctlb)
 		}
 		id = buf_to_uint32(&ctlb->buf[1]);
 
-		if(id > 0)
-			conn_add_id_hash(conn, id);
+		conn_add_id_hash(conn, id);
 		close_conn(conn, WAIT_PLAIN, "libratbox reports no zlib support");
 	}
 	mod_cmd_write_queue(ctl, nozlib_cmd, strlen(nozlib_cmd));
