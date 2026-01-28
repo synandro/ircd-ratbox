@@ -953,10 +953,6 @@ ssl_new_keys(mod_ctl_t * ctl, mod_ctl_buf_t * ctl_buf)
 		goto invalid;
 
 	cacert = advance_zstring(&p);
-	
-	if(cacert == NULL)
-		goto invalid;
-	
 	cert = advance_zstring(&p);
 	if(cert == NULL)
 		goto invalid;
