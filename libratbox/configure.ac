@@ -128,36 +128,6 @@ AC_SUBST(WARNFLAGS)
 
 LIBTOOL="$LIBTOOL --silent"
 
-case "$host_os" in
-*cygwin*)
-     AC_DEFINE_UNQUOTED(CYGWIN,1,[This is a Cygwin system])
-     AC_DEFINE_UNQUOTED(WINDOWS,1,[This is a Windows system])
-     ;;
-*mingw*)
-     AC_DEFINE_UNQUOTED(MINGW,1,[This is a MinGW system])
-     AC_DEFINE_UNQUOTED(WINDOWS,1,[This is a Windows system])
-     AC_CHECK_HEADER(windows.h, , [AC_MSG_ERROR([** MinGW and no windows.h.  I give up.])])
-     AC_CHECK_HEADER(winsock2.h, , [AC_MSG_ERROR([** MinGW and no winsock2.h.  I give up.])])
-     AC_CHECK_HEADER(ws2tcpip.h, , [AC_MSG_ERROR([** MinGW and no winsock2.h.  I give up.])])
-     AC_DEFINE_UNQUOTED(HAVE_WS2TCPIP_H, 1, [Have WS2TCPIP_H])
-     AC_DEFINE_UNQUOTED(HAVE_WINSOCK2_H, 1, [Have WINSOCK_H])
-     AC_DEFINE_UNQUOTED(HAVE_WINSOCK_H, 1, [Have WINSOCK_H])
-     LIBS="$LIBS -lws2_32 -liphlpapi"
-     is_mingw="yes"
-     ;;
-*interix*)
-     CPPFLAGS="$CFLAGS -D_ALL_SOURCE -D_XOPEN_SOURCE=500"
-     ;;
-*solaris*)
-     CPPFLAGS="$CFLAGS -D_POSIX_PTHREAD_SEMANTICS -D_XPG4_2"
-     ;;
-*)
-     ;;
-esac
-
-AM_CONDITIONAL([MINGW], [test "$is_mingw" = "yes"])
-
-
 # backwards support for IRC_CFLAGS
 CFLAGS="$IRC_CFLAGS $CFLAGS -Wall"
 

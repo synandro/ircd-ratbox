@@ -417,7 +417,6 @@ AM_YFLAGS = -d
 AM_CFLAGS = $(WARNFLAGS)
 AM_CPPFLAGS = -I../libratbox/include $(LTDLINCL) @OpenSSL_CFLAGS@ @PICFLAGS@
 BUILT_SOURCES = version.c
-@MINGW_TRUE@EXTRA_FLAGS = -no-undefined -Wl,--enable-runtime-pseudo-reloc -export-symbols-regex '*'
 libcore_la_SOURCES = \
         bandbi.c                        \
         cache.c                         \
@@ -460,10 +459,8 @@ libcore_la_SOURCES = \
 
 libcore_LTLIBRARIES = libcore.la
 libcore_la_LDFLAGS = $(EXTRA_FLAGS) -avoid-version
-@MINGW_FALSE@libcore_la_DEPENDENCIES = ../libratbox/src/libratbox.la
-@MINGW_TRUE@libcore_la_DEPENDENCIES = $(LIBLTDL) ../libratbox/src/libratbox.la
-@MINGW_FALSE@libcore_la_LIBADD = ../libratbox/src/libratbox.la $(LIBLTDL) @OpenSSL_LIBS@ @LIBJEMALLOC@ @LIBTCMALLOC@
-@MINGW_TRUE@libcore_la_LIBADD = ../libratbox/src/libratbox.la $(LIBLTDL) @OpenSSL_LIBS@ @LIBJEMALLOC@ @LIBTCMALLOC@
+libcore_la_DEPENDENCIES = ../libratbox/src/libratbox.la
+libcore_la_LIBADD = ../libratbox/src/libratbox.la $(LIBLTDL) @OpenSSL_LIBS@ @LIBJEMALLOC@ @LIBTCMALLOC@
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

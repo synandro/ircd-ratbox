@@ -139,10 +139,7 @@ am__installdirs = "$(DESTDIR)$(coredir)" "$(DESTDIR)$(libmodulesdir)" \
 	"$(DESTDIR)$(modulesdir)" "$(DESTDIR)$(servicesdir)"
 LTLIBRARIES = $(core_LTLIBRARIES) $(libmodules_LTLIBRARIES) \
 	$(modules_LTLIBRARIES) $(services_LTLIBRARIES)
-@MINGW_TRUE@@STATIC_MODULES_FALSE@am__DEPENDENCIES_1 = ../libratbox/src/libratbox.la \
-@MINGW_TRUE@@STATIC_MODULES_FALSE@	../src/libcore.la
-@STATIC_MODULES_FALSE@core_m_die_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_die_la_DEPENDENCIES =
 am__core_m_die_la_SOURCES_DIST = core/m_die.c
 am__dirstamp = $(am__leading_dot)dirstamp
 @STATIC_MODULES_FALSE@am_core_m_die_la_OBJECTS = core/m_die.lo
@@ -155,8 +152,7 @@ core_m_die_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(core_m_die_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_core_m_die_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_error_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_error_la_DEPENDENCIES =
 am__core_m_error_la_SOURCES_DIST = core/m_error.c
 @STATIC_MODULES_FALSE@am_core_m_error_la_OBJECTS = core/m_error.lo
 core_m_error_la_OBJECTS = $(am_core_m_error_la_OBJECTS)
@@ -165,8 +161,7 @@ core_m_error_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_error_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
 @STATIC_MODULES_FALSE@am_core_m_error_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_join_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_join_la_DEPENDENCIES =
 am__core_m_join_la_SOURCES_DIST = core/m_join.c
 @STATIC_MODULES_FALSE@am_core_m_join_la_OBJECTS = core/m_join.lo
 core_m_join_la_OBJECTS = $(am_core_m_join_la_OBJECTS)
@@ -175,8 +170,7 @@ core_m_join_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_join_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_join_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_kick_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_kick_la_DEPENDENCIES =
 am__core_m_kick_la_SOURCES_DIST = core/m_kick.c
 @STATIC_MODULES_FALSE@am_core_m_kick_la_OBJECTS = core/m_kick.lo
 core_m_kick_la_OBJECTS = $(am_core_m_kick_la_OBJECTS)
@@ -185,8 +179,7 @@ core_m_kick_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_kick_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_kick_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_kill_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_kill_la_DEPENDENCIES =
 am__core_m_kill_la_SOURCES_DIST = core/m_kill.c
 @STATIC_MODULES_FALSE@am_core_m_kill_la_OBJECTS = core/m_kill.lo
 core_m_kill_la_OBJECTS = $(am_core_m_kill_la_OBJECTS)
@@ -195,8 +188,7 @@ core_m_kill_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_kill_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_kill_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_message_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_message_la_DEPENDENCIES =
 am__core_m_message_la_SOURCES_DIST = core/m_message.c
 @STATIC_MODULES_FALSE@am_core_m_message_la_OBJECTS =  \
 @STATIC_MODULES_FALSE@	core/m_message.lo
@@ -206,8 +198,7 @@ core_m_message_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_message_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
 @STATIC_MODULES_FALSE@am_core_m_message_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_mode_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_mode_la_DEPENDENCIES =
 am__core_m_mode_la_SOURCES_DIST = core/m_mode.c
 @STATIC_MODULES_FALSE@am_core_m_mode_la_OBJECTS = core/m_mode.lo
 core_m_mode_la_OBJECTS = $(am_core_m_mode_la_OBJECTS)
@@ -216,8 +207,7 @@ core_m_mode_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_mode_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_mode_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_nick_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_nick_la_DEPENDENCIES =
 am__core_m_nick_la_SOURCES_DIST = core/m_nick.c
 @STATIC_MODULES_FALSE@am_core_m_nick_la_OBJECTS = core/m_nick.lo
 core_m_nick_la_OBJECTS = $(am_core_m_nick_la_OBJECTS)
@@ -226,8 +216,7 @@ core_m_nick_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_nick_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_nick_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_part_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_part_la_DEPENDENCIES =
 am__core_m_part_la_SOURCES_DIST = core/m_part.c
 @STATIC_MODULES_FALSE@am_core_m_part_la_OBJECTS = core/m_part.lo
 core_m_part_la_OBJECTS = $(am_core_m_part_la_OBJECTS)
@@ -236,8 +225,7 @@ core_m_part_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_part_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_part_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_quit_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_quit_la_DEPENDENCIES =
 am__core_m_quit_la_SOURCES_DIST = core/m_quit.c
 @STATIC_MODULES_FALSE@am_core_m_quit_la_OBJECTS = core/m_quit.lo
 core_m_quit_la_OBJECTS = $(am_core_m_quit_la_OBJECTS)
@@ -246,8 +234,7 @@ core_m_quit_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_quit_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_core_m_quit_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_server_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_server_la_DEPENDENCIES =
 am__core_m_server_la_SOURCES_DIST = core/m_server.c
 @STATIC_MODULES_FALSE@am_core_m_server_la_OBJECTS = core/m_server.lo
 core_m_server_la_OBJECTS = $(am_core_m_server_la_OBJECTS)
@@ -256,8 +243,7 @@ core_m_server_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(core_m_server_la_LDFLAGS) $(LDFLAGS) \
 	-o $@
 @STATIC_MODULES_FALSE@am_core_m_server_la_rpath = -rpath $(coredir)
-@STATIC_MODULES_FALSE@core_m_squit_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+core_m_squit_la_DEPENDENCIES =
 am__core_m_squit_la_SOURCES_DIST = core/m_squit.c
 @STATIC_MODULES_FALSE@am_core_m_squit_la_OBJECTS = core/m_squit.lo
 core_m_squit_la_OBJECTS = $(am_core_m_squit_la_OBJECTS)
@@ -310,8 +296,7 @@ am__libmodules_la_SOURCES_DIST = m_accept.c m_admin.c m_adminwall.c \
 @STATIC_MODULES_TRUE@	$(am__objects_2) $(am__objects_3)
 libmodules_la_OBJECTS = $(am_libmodules_la_OBJECTS)
 @STATIC_MODULES_TRUE@am_libmodules_la_rpath = -rpath $(libmodulesdir)
-@STATIC_MODULES_FALSE@m_accept_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_accept_la_DEPENDENCIES =
 am__m_accept_la_SOURCES_DIST = m_accept.c
 @STATIC_MODULES_FALSE@am_m_accept_la_OBJECTS = m_accept.lo
 m_accept_la_OBJECTS = $(am_m_accept_la_OBJECTS)
@@ -319,7 +304,7 @@ m_accept_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_accept_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_accept_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_admin_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_admin_la_DEPENDENCIES =
 am__m_admin_la_SOURCES_DIST = m_admin.c
 @STATIC_MODULES_FALSE@am_m_admin_la_OBJECTS = m_admin.lo
 m_admin_la_OBJECTS = $(am_m_admin_la_OBJECTS)
@@ -327,8 +312,7 @@ m_admin_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_admin_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_admin_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_adminwall_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_adminwall_la_DEPENDENCIES =
 am__m_adminwall_la_SOURCES_DIST = m_adminwall.c
 @STATIC_MODULES_FALSE@am_m_adminwall_la_OBJECTS = m_adminwall.lo
 m_adminwall_la_OBJECTS = $(am_m_adminwall_la_OBJECTS)
@@ -337,7 +321,7 @@ m_adminwall_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_CFLAGS) $(CFLAGS) $(m_adminwall_la_LDFLAGS) $(LDFLAGS) -o \
 	$@
 @STATIC_MODULES_FALSE@am_m_adminwall_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_away_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_away_la_DEPENDENCIES =
 am__m_away_la_SOURCES_DIST = m_away.c
 @STATIC_MODULES_FALSE@am_m_away_la_OBJECTS = m_away.lo
 m_away_la_OBJECTS = $(am_m_away_la_OBJECTS)
@@ -345,7 +329,7 @@ m_away_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_away_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_away_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_cap_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_cap_la_DEPENDENCIES =
 am__m_cap_la_SOURCES_DIST = m_cap.c
 @STATIC_MODULES_FALSE@am_m_cap_la_OBJECTS = m_cap.lo
 m_cap_la_OBJECTS = $(am_m_cap_la_OBJECTS)
@@ -353,7 +337,7 @@ m_cap_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_cap_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_cap_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_capab_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_capab_la_DEPENDENCIES =
 am__m_capab_la_SOURCES_DIST = m_capab.c
 @STATIC_MODULES_FALSE@am_m_capab_la_OBJECTS = m_capab.lo
 m_capab_la_OBJECTS = $(am_m_capab_la_OBJECTS)
@@ -361,7 +345,7 @@ m_capab_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_capab_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_capab_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_close_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_close_la_DEPENDENCIES =
 am__m_close_la_SOURCES_DIST = m_close.c
 @STATIC_MODULES_FALSE@am_m_close_la_OBJECTS = m_close.lo
 m_close_la_OBJECTS = $(am_m_close_la_OBJECTS)
@@ -369,8 +353,7 @@ m_close_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_close_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_close_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_cmessage_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_cmessage_la_DEPENDENCIES =
 am__m_cmessage_la_SOURCES_DIST = m_cmessage.c
 @STATIC_MODULES_FALSE@am_m_cmessage_la_OBJECTS = m_cmessage.lo
 m_cmessage_la_OBJECTS = $(am_m_cmessage_la_OBJECTS)
@@ -378,8 +361,7 @@ m_cmessage_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_cmessage_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_cmessage_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_connect_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_connect_la_DEPENDENCIES =
 am__m_connect_la_SOURCES_DIST = m_connect.c
 @STATIC_MODULES_FALSE@am_m_connect_la_OBJECTS = m_connect.lo
 m_connect_la_OBJECTS = $(am_m_connect_la_OBJECTS)
@@ -387,7 +369,7 @@ m_connect_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_connect_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_connect_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_dline_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_dline_la_DEPENDENCIES =
 am__m_dline_la_SOURCES_DIST = m_dline.c
 @STATIC_MODULES_FALSE@am_m_dline_la_OBJECTS = m_dline.lo
 m_dline_la_OBJECTS = $(am_m_dline_la_OBJECTS)
@@ -395,7 +377,7 @@ m_dline_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_dline_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_dline_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_encap_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_encap_la_DEPENDENCIES =
 am__m_encap_la_SOURCES_DIST = m_encap.c
 @STATIC_MODULES_FALSE@am_m_encap_la_OBJECTS = m_encap.lo
 m_encap_la_OBJECTS = $(am_m_encap_la_OBJECTS)
@@ -403,7 +385,7 @@ m_encap_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_encap_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_encap_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_gline_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_gline_la_DEPENDENCIES =
 am__m_gline_la_SOURCES_DIST = m_gline.c
 @STATIC_MODULES_FALSE@am_m_gline_la_OBJECTS = m_gline.lo
 m_gline_la_OBJECTS = $(am_m_gline_la_OBJECTS)
@@ -411,8 +393,7 @@ m_gline_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_gline_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_gline_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_gungline_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_gungline_la_DEPENDENCIES =
 am__m_gungline_la_SOURCES_DIST = m_gungline.c
 @STATIC_MODULES_FALSE@am_m_gungline_la_OBJECTS = m_gungline.lo
 m_gungline_la_OBJECTS = $(am_m_gungline_la_OBJECTS)
@@ -420,7 +401,7 @@ m_gungline_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_gungline_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_gungline_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_help_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_help_la_DEPENDENCIES =
 am__m_help_la_SOURCES_DIST = m_help.c
 @STATIC_MODULES_FALSE@am_m_help_la_OBJECTS = m_help.lo
 m_help_la_OBJECTS = $(am_m_help_la_OBJECTS)
@@ -428,7 +409,7 @@ m_help_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_help_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_help_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_info_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_info_la_DEPENDENCIES =
 am__m_info_la_SOURCES_DIST = m_info.c
 @STATIC_MODULES_FALSE@am_m_info_la_OBJECTS = m_info.lo
 m_info_la_OBJECTS = $(am_m_info_la_OBJECTS)
@@ -436,8 +417,7 @@ m_info_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_info_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_info_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_invite_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_invite_la_DEPENDENCIES =
 am__m_invite_la_SOURCES_DIST = m_invite.c
 @STATIC_MODULES_FALSE@am_m_invite_la_OBJECTS = m_invite.lo
 m_invite_la_OBJECTS = $(am_m_invite_la_OBJECTS)
@@ -445,7 +425,7 @@ m_invite_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_invite_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_invite_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_ison_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_ison_la_DEPENDENCIES =
 am__m_ison_la_SOURCES_DIST = m_ison.c
 @STATIC_MODULES_FALSE@am_m_ison_la_OBJECTS = m_ison.lo
 m_ison_la_OBJECTS = $(am_m_ison_la_OBJECTS)
@@ -453,7 +433,7 @@ m_ison_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_ison_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_ison_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_kline_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_kline_la_DEPENDENCIES =
 am__m_kline_la_SOURCES_DIST = m_kline.c
 @STATIC_MODULES_FALSE@am_m_kline_la_OBJECTS = m_kline.lo
 m_kline_la_OBJECTS = $(am_m_kline_la_OBJECTS)
@@ -461,7 +441,7 @@ m_kline_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_kline_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_kline_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_knock_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_knock_la_DEPENDENCIES =
 am__m_knock_la_SOURCES_DIST = m_knock.c
 @STATIC_MODULES_FALSE@am_m_knock_la_OBJECTS = m_knock.lo
 m_knock_la_OBJECTS = $(am_m_knock_la_OBJECTS)
@@ -469,7 +449,7 @@ m_knock_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_knock_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_knock_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_links_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_links_la_DEPENDENCIES =
 am__m_links_la_SOURCES_DIST = m_links.c
 @STATIC_MODULES_FALSE@am_m_links_la_OBJECTS = m_links.lo
 m_links_la_OBJECTS = $(am_m_links_la_OBJECTS)
@@ -477,7 +457,7 @@ m_links_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_links_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_links_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_list_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_list_la_DEPENDENCIES =
 am__m_list_la_SOURCES_DIST = m_list.c
 @STATIC_MODULES_FALSE@am_m_list_la_OBJECTS = m_list.lo
 m_list_la_OBJECTS = $(am_m_list_la_OBJECTS)
@@ -485,8 +465,7 @@ m_list_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_list_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_list_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_locops_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_locops_la_DEPENDENCIES =
 am__m_locops_la_SOURCES_DIST = m_locops.c
 @STATIC_MODULES_FALSE@am_m_locops_la_OBJECTS = m_locops.lo
 m_locops_la_OBJECTS = $(am_m_locops_la_OBJECTS)
@@ -494,8 +473,7 @@ m_locops_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_locops_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_locops_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_lusers_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_lusers_la_DEPENDENCIES =
 am__m_lusers_la_SOURCES_DIST = m_lusers.c
 @STATIC_MODULES_FALSE@am_m_lusers_la_OBJECTS = m_lusers.lo
 m_lusers_la_OBJECTS = $(am_m_lusers_la_OBJECTS)
@@ -503,7 +481,7 @@ m_lusers_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_lusers_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_lusers_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_map_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_map_la_DEPENDENCIES =
 am__m_map_la_SOURCES_DIST = m_map.c
 @STATIC_MODULES_FALSE@am_m_map_la_OBJECTS = m_map.lo
 m_map_la_OBJECTS = $(am_m_map_la_OBJECTS)
@@ -511,8 +489,7 @@ m_map_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_map_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_map_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_monitor_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_monitor_la_DEPENDENCIES =
 am__m_monitor_la_SOURCES_DIST = m_monitor.c
 @STATIC_MODULES_FALSE@am_m_monitor_la_OBJECTS = m_monitor.lo
 m_monitor_la_OBJECTS = $(am_m_monitor_la_OBJECTS)
@@ -520,7 +497,7 @@ m_monitor_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_monitor_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_monitor_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_motd_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_motd_la_DEPENDENCIES =
 am__m_motd_la_SOURCES_DIST = m_motd.c
 @STATIC_MODULES_FALSE@am_m_motd_la_OBJECTS = m_motd.lo
 m_motd_la_OBJECTS = $(am_m_motd_la_OBJECTS)
@@ -528,7 +505,7 @@ m_motd_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_motd_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_motd_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_names_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_names_la_DEPENDENCIES =
 am__m_names_la_SOURCES_DIST = m_names.c
 @STATIC_MODULES_FALSE@am_m_names_la_OBJECTS = m_names.lo
 m_names_la_OBJECTS = $(am_m_names_la_OBJECTS)
@@ -536,7 +513,7 @@ m_names_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_names_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_names_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_oper_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_oper_la_DEPENDENCIES =
 am__m_oper_la_SOURCES_DIST = m_oper.c
 @STATIC_MODULES_FALSE@am_m_oper_la_OBJECTS = m_oper.lo
 m_oper_la_OBJECTS = $(am_m_oper_la_OBJECTS)
@@ -544,8 +521,7 @@ m_oper_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_oper_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_oper_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_operspy_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_operspy_la_DEPENDENCIES =
 am__m_operspy_la_SOURCES_DIST = m_operspy.c
 @STATIC_MODULES_FALSE@am_m_operspy_la_OBJECTS = m_operspy.lo
 m_operspy_la_OBJECTS = $(am_m_operspy_la_OBJECTS)
@@ -553,7 +529,7 @@ m_operspy_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_operspy_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_operspy_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_pass_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_pass_la_DEPENDENCIES =
 am__m_pass_la_SOURCES_DIST = m_pass.c
 @STATIC_MODULES_FALSE@am_m_pass_la_OBJECTS = m_pass.lo
 m_pass_la_OBJECTS = $(am_m_pass_la_OBJECTS)
@@ -561,7 +537,7 @@ m_pass_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_pass_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_pass_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_ping_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_ping_la_DEPENDENCIES =
 am__m_ping_la_SOURCES_DIST = m_ping.c
 @STATIC_MODULES_FALSE@am_m_ping_la_OBJECTS = m_ping.lo
 m_ping_la_OBJECTS = $(am_m_ping_la_OBJECTS)
@@ -569,7 +545,7 @@ m_ping_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_ping_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_ping_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_pong_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_pong_la_DEPENDENCIES =
 am__m_pong_la_SOURCES_DIST = m_pong.c
 @STATIC_MODULES_FALSE@am_m_pong_la_OBJECTS = m_pong.lo
 m_pong_la_OBJECTS = $(am_m_pong_la_OBJECTS)
@@ -577,7 +553,7 @@ m_pong_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_pong_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_pong_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_post_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_post_la_DEPENDENCIES =
 am__m_post_la_SOURCES_DIST = m_post.c
 @STATIC_MODULES_FALSE@am_m_post_la_OBJECTS = m_post.lo
 m_post_la_OBJECTS = $(am_m_post_la_OBJECTS)
@@ -585,8 +561,7 @@ m_post_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_post_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_post_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_rehash_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_rehash_la_DEPENDENCIES =
 am__m_rehash_la_SOURCES_DIST = m_rehash.c
 @STATIC_MODULES_FALSE@am_m_rehash_la_OBJECTS = m_rehash.lo
 m_rehash_la_OBJECTS = $(am_m_rehash_la_OBJECTS)
@@ -594,8 +569,7 @@ m_rehash_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_rehash_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_rehash_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_restart_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_restart_la_DEPENDENCIES =
 am__m_restart_la_SOURCES_DIST = m_restart.c
 @STATIC_MODULES_FALSE@am_m_restart_la_OBJECTS = m_restart.lo
 m_restart_la_OBJECTS = $(am_m_restart_la_OBJECTS)
@@ -603,7 +577,7 @@ m_restart_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_restart_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_restart_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_resv_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_resv_la_DEPENDENCIES =
 am__m_resv_la_SOURCES_DIST = m_resv.c
 @STATIC_MODULES_FALSE@am_m_resv_la_OBJECTS = m_resv.lo
 m_resv_la_OBJECTS = $(am_m_resv_la_OBJECTS)
@@ -611,7 +585,7 @@ m_resv_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_resv_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_resv_la_rpath = -rpath $(modulesdir)
-@ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@m_services_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_services_la_DEPENDENCIES =
 am__m_services_la_SOURCES_DIST = m_services.c
 @ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@am_m_services_la_OBJECTS =  \
 @ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@	m_services.lo
@@ -622,7 +596,7 @@ m_services_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 @ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@am_m_services_la_rpath =  \
 @ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@	-rpath \
 @ENABLE_SERVICES_TRUE@@STATIC_MODULES_FALSE@	$(servicesdir)
-@STATIC_MODULES_FALSE@m_set_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_set_la_DEPENDENCIES =
 am__m_set_la_SOURCES_DIST = m_set.c
 @STATIC_MODULES_FALSE@am_m_set_la_OBJECTS = m_set.lo
 m_set_la_OBJECTS = $(am_m_set_la_OBJECTS)
@@ -630,7 +604,7 @@ m_set_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_set_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_set_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_stats_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_stats_la_DEPENDENCIES =
 am__m_stats_la_SOURCES_DIST = m_stats.c
 @STATIC_MODULES_FALSE@am_m_stats_la_OBJECTS = m_stats.lo
 m_stats_la_OBJECTS = $(am_m_stats_la_OBJECTS)
@@ -638,8 +612,7 @@ m_stats_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_stats_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_stats_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_svinfo_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_svinfo_la_DEPENDENCIES =
 am__m_svinfo_la_SOURCES_DIST = m_svinfo.c
 @STATIC_MODULES_FALSE@am_m_svinfo_la_OBJECTS = m_svinfo.lo
 m_svinfo_la_OBJECTS = $(am_m_svinfo_la_OBJECTS)
@@ -647,7 +620,7 @@ m_svinfo_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_svinfo_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_svinfo_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_tb_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_tb_la_DEPENDENCIES =
 am__m_tb_la_SOURCES_DIST = m_tb.c
 @STATIC_MODULES_FALSE@am_m_tb_la_OBJECTS = m_tb.lo
 m_tb_la_OBJECTS = $(am_m_tb_la_OBJECTS)
@@ -655,8 +628,7 @@ m_tb_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_tb_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_tb_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_testline_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_testline_la_DEPENDENCIES =
 am__m_testline_la_SOURCES_DIST = m_testline.c
 @STATIC_MODULES_FALSE@am_m_testline_la_OBJECTS = m_testline.lo
 m_testline_la_OBJECTS = $(am_m_testline_la_OBJECTS)
@@ -664,8 +636,7 @@ m_testline_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_testline_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_testline_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_testmask_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_testmask_la_DEPENDENCIES =
 am__m_testmask_la_SOURCES_DIST = m_testmask.c
 @STATIC_MODULES_FALSE@am_m_testmask_la_OBJECTS = m_testmask.lo
 m_testmask_la_OBJECTS = $(am_m_testmask_la_OBJECTS)
@@ -673,7 +644,7 @@ m_testmask_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_testmask_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_testmask_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_time_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_time_la_DEPENDENCIES =
 am__m_time_la_SOURCES_DIST = m_time.c
 @STATIC_MODULES_FALSE@am_m_time_la_OBJECTS = m_time.lo
 m_time_la_OBJECTS = $(am_m_time_la_OBJECTS)
@@ -681,7 +652,7 @@ m_time_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_time_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_time_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_topic_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_topic_la_DEPENDENCIES =
 am__m_topic_la_SOURCES_DIST = m_topic.c
 @STATIC_MODULES_FALSE@am_m_topic_la_OBJECTS = m_topic.lo
 m_topic_la_OBJECTS = $(am_m_topic_la_OBJECTS)
@@ -689,7 +660,7 @@ m_topic_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_topic_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_topic_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_trace_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_trace_la_DEPENDENCIES =
 am__m_trace_la_SOURCES_DIST = m_trace.c
 @STATIC_MODULES_FALSE@am_m_trace_la_OBJECTS = m_trace.lo
 m_trace_la_OBJECTS = $(am_m_trace_la_OBJECTS)
@@ -697,8 +668,7 @@ m_trace_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_trace_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_trace_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_unreject_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_unreject_la_DEPENDENCIES =
 am__m_unreject_la_SOURCES_DIST = m_unreject.c
 @STATIC_MODULES_FALSE@am_m_unreject_la_OBJECTS = m_unreject.lo
 m_unreject_la_OBJECTS = $(am_m_unreject_la_OBJECTS)
@@ -706,7 +676,7 @@ m_unreject_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_unreject_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_unreject_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_user_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_user_la_DEPENDENCIES =
 am__m_user_la_SOURCES_DIST = m_user.c
 @STATIC_MODULES_FALSE@am_m_user_la_OBJECTS = m_user.lo
 m_user_la_OBJECTS = $(am_m_user_la_OBJECTS)
@@ -714,8 +684,7 @@ m_user_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_user_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_user_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_userhost_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_userhost_la_DEPENDENCIES =
 am__m_userhost_la_SOURCES_DIST = m_userhost.c
 @STATIC_MODULES_FALSE@am_m_userhost_la_OBJECTS = m_userhost.lo
 m_userhost_la_OBJECTS = $(am_m_userhost_la_OBJECTS)
@@ -723,8 +692,7 @@ m_userhost_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_userhost_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_userhost_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_version_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_version_la_DEPENDENCIES =
 am__m_version_la_SOURCES_DIST = m_version.c
 @STATIC_MODULES_FALSE@am_m_version_la_OBJECTS = m_version.lo
 m_version_la_OBJECTS = $(am_m_version_la_OBJECTS)
@@ -732,8 +700,7 @@ m_version_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_version_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_version_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_wallops_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_wallops_la_DEPENDENCIES =
 am__m_wallops_la_SOURCES_DIST = m_wallops.c
 @STATIC_MODULES_FALSE@am_m_wallops_la_OBJECTS = m_wallops.lo
 m_wallops_la_OBJECTS = $(am_m_wallops_la_OBJECTS)
@@ -741,7 +708,7 @@ m_wallops_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_wallops_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_wallops_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_who_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_who_la_DEPENDENCIES =
 am__m_who_la_SOURCES_DIST = m_who.c
 @STATIC_MODULES_FALSE@am_m_who_la_OBJECTS = m_who.lo
 m_who_la_OBJECTS = $(am_m_who_la_OBJECTS)
@@ -749,7 +716,7 @@ m_who_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_who_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_who_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_whois_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_whois_la_DEPENDENCIES =
 am__m_whois_la_SOURCES_DIST = m_whois.c
 @STATIC_MODULES_FALSE@am_m_whois_la_OBJECTS = m_whois.lo
 m_whois_la_OBJECTS = $(am_m_whois_la_OBJECTS)
@@ -757,8 +724,7 @@ m_whois_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_whois_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_whois_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_whowas_la_DEPENDENCIES =  \
-@STATIC_MODULES_FALSE@	$(am__DEPENDENCIES_1)
+m_whowas_la_DEPENDENCIES =
 am__m_whowas_la_SOURCES_DIST = m_whowas.c
 @STATIC_MODULES_FALSE@am_m_whowas_la_OBJECTS = m_whowas.lo
 m_whowas_la_OBJECTS = $(am_m_whowas_la_OBJECTS)
@@ -766,7 +732,7 @@ m_whowas_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
 	$(m_whowas_la_LDFLAGS) $(LDFLAGS) -o $@
 @STATIC_MODULES_FALSE@am_m_whowas_la_rpath = -rpath $(modulesdir)
-@STATIC_MODULES_FALSE@m_xline_la_DEPENDENCIES = $(am__DEPENDENCIES_1)
+m_xline_la_DEPENDENCIES =
 am__m_xline_la_SOURCES_DIST = m_xline.c
 @STATIC_MODULES_FALSE@am_m_xline_la_OBJECTS = m_xline.lo
 m_xline_la_OBJECTS = $(am_m_xline_la_OBJECTS)
@@ -1096,9 +1062,7 @@ servicesdir = @moduledir@/autoload
 libmodulesdir = @moduledir@
 AM_CPPFLAGS = -I../libratbox/include -I../include $(LTDLINCL) @SSL_INCLUDES@
 AM_CFLAGS = $(WARNFLAGS)
-@MINGW_TRUE@EXTRA_FLAGS = -no-undefined -Wl,--enable-runtime-pseudo-reloc -export-symbols-regex '*'
 MODULE_FLAGS = $(EXTRA_FLAGS) -avoid-version 
-@MINGW_TRUE@@STATIC_MODULES_FALSE@MODULE_LIBS = ../libratbox/src/libratbox.la ../src/libcore.la @SSL_LIBS@ 
 @STATIC_MODULES_FALSE@m_accept_la_LDFLAGS = -module $(MODULE_FLAGS)  
 @STATIC_MODULES_FALSE@m_admin_la_LDFLAGS = -module $(MODULE_FLAGS)  
 @STATIC_MODULES_FALSE@m_adminwall_la_LDFLAGS = -module $(MODULE_FLAGS)  

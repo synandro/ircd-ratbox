@@ -14,23 +14,9 @@ AM_CPPFLAGS = -I../libratbox/include -I../include $(LTDLINCL) @SSL_INCLUDES@
 
 AM_CFLAGS = $(WARNFLAGS)
 
-
-if MINGW
-EXTRA_FLAGS = -no-undefined -Wl,--enable-runtime-pseudo-reloc -export-symbols-regex '*'
-endif
-
-
 MODULE_FLAGS = $(EXTRA_FLAGS) -avoid-version 
 
 if !STATIC_MODULES
-
-if MINGW
-MODULE_LIBS = ../libratbox/src/libratbox.la ../src/libcore.la @SSL_LIBS@ 
-endif # MINGW
-
-
-
-
 
 m_accept_la_LDFLAGS =  -module $(MODULE_FLAGS)  
 m_admin_la_LDFLAGS =  -module $(MODULE_FLAGS)  

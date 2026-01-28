@@ -16,15 +16,11 @@ AM_CFLAGS = $(WARNFLAGS)
 ircd_ratbox_SOURCES = main.c
 bin_PROGRAMS = ircd-ratbox
 
-if MINGW
-EXTRA_FLAGS = -no-undefined -Wl,--enable-runtime-pseudo-reloc -export-symbols-regex '*'
-endif
-
 if !STATIC_MODULES
 
 SUBDIRS = @LTDL_SUBDIR@ libratbox src modules tools doc help bandb ssld resolver
 
-ircd_ratbox_LDADD = libratbox/src/libratbox.la src/libcore.la $(LIBLTDL) @LIBJEMALLOC@ @LIBTCMALLOC@
+ircd_ratbox_LDADD =  src/libcore.la libratbox/src/libratbox.la $(LIBLTDL) @LIBJEMALLOC@ @LIBTCMALLOC@
 ircd_ratbox_LDFLAGS = $(EXTRA_FLAGS) -dlopen self
 
 else

@@ -18,10 +18,6 @@ version.c: version.c.SH ../CREDITS ../include/version.h ../include/serno.h
 	$(CP) version.c version.c.last
 	touch version.c.SH
                 
-if MINGW
-EXTRA_FLAGS = -no-undefined -Wl,--enable-runtime-pseudo-reloc -export-symbols-regex '*'
-endif
-
 libcore_la_SOURCES =			\
         bandbi.c                        \
         cache.c                         \
@@ -65,13 +61,8 @@ libcore_la_SOURCES =			\
 libcore_LTLIBRARIES = libcore.la
 libcore_la_LDFLAGS = $(EXTRA_FLAGS) -avoid-version
 
-if MINGW
-libcore_la_DEPENDENCIES = $(LIBLTDL) ../libratbox/src/libratbox.la
-libcore_la_LIBADD = ../libratbox/src/libratbox.la $(LIBLTDL) @OpenSSL_LIBS@ @LIBJEMALLOC@ @LIBTCMALLOC@
-else
 libcore_la_DEPENDENCIES = ../libratbox/src/libratbox.la
 libcore_la_LIBADD = ../libratbox/src/libratbox.la $(LIBLTDL) @OpenSSL_LIBS@ @LIBJEMALLOC@ @LIBTCMALLOC@
-endif
 
 
 install-exec-hook: install-libcoreLTLIBRARIES
