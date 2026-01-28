@@ -171,48 +171,41 @@ rb_rawbuf_flush(rb_rawbuf_head_t * rb, rb_fde_t *F)
 	return retval;
 }
 
+#ifndef IRCD_MIN
+#define IRCD_MIN(a, b)	((a) < (b) ? (a) : (b))
+#endif
 
 void
-rb_rawbuf_append(rb_rawbuf_head_t * rb, void *data, size_t len)
+rb_rawbuf_append(rb_rawbuf_head_t * rb, void *in, size_t len)
 {
 	rb_rawbuf_t *buf = NULL;
 	size_t clen;
 	void *ptr;
+	uint8_t *data = in;
+
 	if(rb->list.tail != NULL)
 		buf = rb->list.tail->data;
 
-	if(buf != NULL && buf->len < RAWBUF_SIZE && buf->flushing == false)
+	if(buf != NULL && buf->len < sizeof(buf->data) && buf->flushing == false)
 	{
-		buf = (rb_rawbuf_t *) rb->list.tail->data;
-		clen = RAWBUF_SIZE - buf->len;
-		ptr = (void *)(buf->data + buf->len);
-		if(len < clen)
-			clen = len;
-
+		ptr = (void *)((uintptr_t)buf->data + buf->len);
+		clen = IRCD_MIN((sizeof(buf->data) - buf->len), len);
 		memcpy(ptr, data, clen);
 		buf->len += clen;
 		rb->len += clen;
 		len -= clen;
-		if(len == 0)
-			return;
-		data = (char *)data + clen;
-
+		data = (data + clen);
 	}
 
 	while(len > 0)
 	{
 		buf = rb_rawbuf_newbuf(rb);
-
-		if(len >= RAWBUF_SIZE)
-			clen = RAWBUF_SIZE;
-		else
-			clen = len;
-
+		clen = IRCD_MIN(sizeof(buf->data), len);
 		memcpy(buf->data, data, clen);
 		buf->len += clen;
-		len -= clen;
-		data = (char *)data + clen;
 		rb->len += clen;
+		len -= clen;
+		data = (data + clen);
 	}
 }
 
