@@ -295,7 +295,7 @@ AC_CHECK_TYPE([sa_family_t], [],
 
 
 dnl check for various functions...
-AC_CHECK_FUNCS([snprintf vsnprintf socketpair gettimeofday writev sendmsg gmtime_r strtok_r usleep posix_spawn strdup strndup strlcpy strlcat strnlen fstat signalfd select poll kevent kqueue1 port_create epoll_ctl epoll_create1 arc4random getrusage timerfd_create accept4 pipe2])	
+AC_CHECK_FUNCS([snprintf vsnprintf socketpair gettimeofday writev sendmsg gmtime_r strtok_r usleep posix_spawn strdup strndup strlcpy strlcat strnlen fstat signalfd select poll kevent kqueue1 port_create epoll_ctl epoll_create1 arc4random arc4random_stir getrusage timerfd_create accept4 pipe2])
 
 AC_SEARCH_LIBS(nanosleep, rt posix4, AC_DEFINE(HAVE_NANOSLEEP, 1, [Define if you have nanosleep]))
 AC_SEARCH_LIBS(timer_create, rt, AC_DEFINE(HAVE_TIMER_CREATE, 1, [Define if you have timer_create]))

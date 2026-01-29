@@ -56,14 +56,18 @@ rb_ssl_listen(rb_fde_t *F, int backlog, bool defer_accept)
 static void
 rb_stir_arc4random(void *unused)
 {
+#ifdef HAVE_ARC4RANDOM_STIR
 	arc4random_stir();
+#endif
 }
 
 int
 rb_init_prng(const char *path, prng_seed_t seed_type)
 {
 	/* xxx this ignores the parameters above */
+#ifdef HAVE_ARC4RANDOM_STIR
 	arc4random_stir();
+#endif
 	rb_event_addish("rb_stir_arc4random", rb_stir_arc4random, NULL, 300);
 	return 1;
 }
