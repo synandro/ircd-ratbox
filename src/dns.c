@@ -317,6 +317,9 @@ parse_dns_reply(rb_helper * helper)
 	{
 		parc = rb_string_to_array(dnsBuf, parv, MAXPARA+1); 
 
+		if(parc == 0 || parv[0] == NULL)
+			continue;
+
 		if(*parv[0] == 'R')
 		{
 			if(parc != 5)
@@ -401,4 +404,3 @@ rehash_resolver(void)
 {
 	rb_helper_write(dns_helper, "R");
 }
-
