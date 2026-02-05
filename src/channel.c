@@ -788,7 +788,7 @@ set_channel_topic(struct Channel *chptr, const char *topic, const char *topic_in
 		else
 			rb_free(chptr->topic->topic);
 
-		chptr->topic->topic = rb_strndup(topic, ConfigChannel.topiclen + 1);	/* the + 1 for the \0 */
+		chptr->topic->topic = rb_strndup(topic, ConfigChannel.topiclen);
 		rb_strlcpy(chptr->topic->topic_info, topic_info, sizeof(chptr->topic->topic_info));
 		chptr->topic->topic_time = topicts;
 	}
@@ -1090,4 +1090,3 @@ find_channel(const char *name)
 
 	return hash_find_data(HASH_CHANNEL, name);
 }
-
