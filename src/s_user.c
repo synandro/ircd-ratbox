@@ -301,9 +301,6 @@ register_local_user(struct Client *client_p, struct Client *source_p, const char
 		username = myusername;
 	}
 
-	if((status = check_client(client_p, source_p, username)) < 0)
-		return (CLIENT_EXITED);
-
 	if(!valid_hostname(source_p->host))
 	{
 		sendto_one_notice(source_p, ":*** Notice -- You have an invalid hostname");
@@ -315,6 +312,9 @@ register_local_user(struct Client *client_p, struct Client *source_p, const char
 			rb_strlcat(source_p->host, ".", sizeof(source_p->host));
 #endif
 	}
+
+	if((status = check_client(client_p, source_p, username)) < 0)
+		return (CLIENT_EXITED);
 
 
 	aconf = source_p->localClient->att_conf;
