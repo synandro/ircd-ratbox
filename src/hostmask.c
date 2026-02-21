@@ -312,6 +312,33 @@ find_auth(const char *name, const char *sockhost, struct sockaddr *addr, int fam
 			}
 		}
 	}
+
+	if(sockhost != NULL && (name == NULL || irccmp(name, sockhost)))
+	{
+		const char *p;
+
+		for(p = sockhost; p != NULL;)
+		{
+			for(arec = atable[hash_text(p)]; arec; arec = arec->next)
+			{
+				if((arec->type & ~CONF_SKIPUSER) == CONF_CLIENT &&
+				   (arec->masktype == HM_HOST) &&
+				   arec->precedence > hprecv &&
+				   match(arec->Mask.hostname, sockhost) &&
+				   (arec->type & CONF_SKIPUSER || match(arec->username, username)))
+				{
+					hprecv = arec->precedence;
+					hprec = arec->aconf;
+				}
+			}
+
+			p = strchr(p, '.');
+			if(p != NULL)
+				p++;
+			else
+				break;
+		}
+	}
 	return hprec;
 }
 
@@ -406,6 +433,29 @@ find_conf_by_address(const char *name, const char *sockhost,
 			    (sockhost && match(arec->Mask.hostname, sockhost))) &&
 			   (arec->type & CONF_SKIPUSER || match(arec->username, username)))
 				return arec->aconf;
+		}
+	}
+
+	if(sockhost != NULL && (name == NULL || irccmp(name, sockhost)))
+	{
+		const char *p;
+
+		for(p = sockhost; p != NULL;)
+		{
+			for(arec = atable[hash_text(p)]; arec; arec = arec->next)
+			{
+				if(type == (arec->type & ~CONF_SKIPUSER) &&
+				   (arec->masktype == HM_HOST) &&
+				   match(arec->Mask.hostname, sockhost) &&
+				   (arec->type & CONF_SKIPUSER || match(arec->username, username)))
+					return arec->aconf;
+			}
+
+			p = strchr(p, '.');
+			if(p != NULL)
+				p++;
+			else
+				break;
 		}
 	}
 
