@@ -663,7 +663,6 @@ rbl_destroy(rbl_t *t, bool freeing)
 		rb_dlinkDelete(&answer->node, &t->answers);
 		rbl_free_answer(answer);
 	}
-	rb_dlinkDelete(&t->node, &rbl_lists);
 	rb_free(t->rblname);
 	rb_free(t->mo_answer);
 	rb_free(t);
