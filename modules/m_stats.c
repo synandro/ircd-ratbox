@@ -93,45 +93,45 @@ static void stats_p_spy(struct Client *);
 struct StatsStruct
 {
 	char letter;
-	void (*handler) ();
+	void (*handler) (struct Client *, int, const char **);
 	int need_oper;
 	int need_admin;
 };
 
-static void stats_dns_servers(struct Client *);
-static void stats_delay(struct Client *);
-static void stats_hash(struct Client *);
-static void stats_connect(struct Client *);
-static void stats_tdeny(struct Client *);
-static void stats_deny(struct Client *);
-static void stats_exempt(struct Client *);
-static void stats_events(struct Client *);
-static void stats_glines(struct Client *);
-static void stats_pending_glines(struct Client *);
-static void stats_hubleaf(struct Client *);
-static void stats_auth(struct Client *);
-static void stats_tklines(struct Client *);
-static void stats_klines(struct Client *);
-static void stats_messages(struct Client *);
-static void stats_oper(struct Client *);
-static void stats_operedup(struct Client *);
-static void stats_ports(struct Client *);
-static void stats_tresv(struct Client *);
-static void stats_resv(struct Client *);
-static void stats_usage(struct Client *);
-static void stats_tstats(struct Client *);
-static void stats_uptime(struct Client *);
-static void stats_shared(struct Client *);
-static void stats_servers(struct Client *);
-static void stats_tgecos(struct Client *);
-static void stats_gecos(struct Client *);
-static void stats_class(struct Client *);
-static void stats_memory(struct Client *);
-static void stats_servlinks(struct Client *);
+static void stats_dns_servers(struct Client *, int, const char **);
+static void stats_delay(struct Client *, int, const char **);
+static void stats_hash(struct Client *, int, const char **);
+static void stats_connect(struct Client *, int, const char **);
+static void stats_tdeny(struct Client *, int, const char **);
+static void stats_deny(struct Client *, int, const char **);
+static void stats_exempt(struct Client *, int, const char **);
+static void stats_events(struct Client *, int, const char **);
+static void stats_glines(struct Client *, int, const char **);
+static void stats_pending_glines(struct Client *, int, const char **);
+static void stats_hubleaf(struct Client *, int, const char **);
+static void stats_auth(struct Client *, int, const char **);
+static void stats_tklines(struct Client *, int, const char **);
+static void stats_klines(struct Client *, int, const char **);
+static void stats_messages(struct Client *, int, const char **);
+static void stats_oper(struct Client *, int, const char **);
+static void stats_operedup(struct Client *, int, const char **);
+static void stats_ports(struct Client *, int, const char **);
+static void stats_tresv(struct Client *, int, const char **);
+static void stats_resv(struct Client *, int, const char **);
+static void stats_usage(struct Client *, int, const char **);
+static void stats_tstats(struct Client *, int, const char **);
+static void stats_uptime(struct Client *, int, const char **);
+static void stats_shared(struct Client *, int, const char **);
+static void stats_servers(struct Client *, int, const char **);
+static void stats_tgecos(struct Client *, int, const char **);
+static void stats_gecos(struct Client *, int, const char **);
+static void stats_class(struct Client *, int, const char **);
+static void stats_memory(struct Client *, int, const char **);
+static void stats_servlinks(struct Client *, int, const char **);
 static void stats_ltrace(struct Client *, int, const char **);
-static void stats_ziplinks(struct Client *);
-static void stats_comm(struct Client *);
-static void stats_rbl(struct Client *);
+static void stats_ziplinks(struct Client *, int, const char **);
+static void stats_comm(struct Client *, int, const char **);
+static void stats_rbl(struct Client *, int, const char **);
 /* This table contains the possible stats items, in order:
  * stats letter,  function to call, operonly? adminonly?
  * case only matters in the stats letter column.. -- fl_
@@ -185,7 +185,7 @@ static struct StatsStruct stats_cmd_table[] = {
 	{'z', stats_memory, 1, 0,},
 	{'Z', stats_ziplinks, 1, 0,},
 	{'?', stats_servlinks, 0, 0,},
-	{(char) 0, (void (*)()) 0, 0, 0,}
+	{0, NULL, 0, 0,}
 };
 
 /*
@@ -243,11 +243,7 @@ m_stats(struct Client *client_p, struct Client *source_p, int parc, const char *
 				break;
 			}
 			SetCork(source_p);
-			/* Blah, stats L needs the parameters, none of the others do.. */
-			if(statchar == 'L' || statchar == 'l')
-				stats_cmd_table[i].handler(source_p, parc, parv);
-			else
-				stats_cmd_table[i].handler(source_p);
+			stats_cmd_table[i].handler(source_p, parc, parv);
 			ClearCork(source_p);
 
 		}
@@ -260,25 +256,25 @@ m_stats(struct Client *client_p, struct Client *source_p, int parc, const char *
 }
 
 static void
-stats_dns_servers(struct Client *source_p)
+stats_dns_servers(struct Client *source_p, int parc, const char *parv[])
 {
 	report_dns_servers(source_p);
 }
 
 static void
-stats_delay(struct Client *source_p)
+stats_delay(struct Client *source_p, int parc, const char *parv[])
 {
 	list_nd_entries(source_p);
 }
 
 static void
-stats_hash(struct Client *source_p)
+stats_hash(struct Client *source_p, int parc, const char *parv[])
 {
 	hash_stats(source_p);
 }
 
 static void
-stats_connect(struct Client *source_p)
+stats_connect(struct Client *source_p, int parc, const char *parv[])
 {
 	char buf[5];
 	char *s;
@@ -332,7 +328,7 @@ stats_connect(struct Client *source_p)
  * side effects - client is given temp dline list.
  */
 static void
-stats_tdeny(struct Client *source_p)
+stats_tdeny(struct Client *source_p, int parc, const char *parv[])
 {
 	report_tdlines(source_p);
 }
@@ -344,7 +340,7 @@ stats_tdeny(struct Client *source_p)
  * side effects - client is given dline list.
  */
 static void
-stats_deny(struct Client *source_p)
+stats_deny(struct Client *source_p, int parc, const char *parv[])
 {
 	report_dlines(source_p);
 }
@@ -357,7 +353,7 @@ stats_deny(struct Client *source_p)
  * side effects - client is given list of exempt blocks
  */
 static void
-stats_exempt(struct Client *source_p)
+stats_exempt(struct Client *source_p, int parc, const char *parv[])
 {
 	if(ConfigFileEntry.stats_e_disabled)
 	{
@@ -375,7 +371,7 @@ stats_events_cb(char *str, void *ptr)
 }
 
 static void
-stats_events(struct Client *source_p)
+stats_events(struct Client *source_p, int parc, const char *parv[])
 {
 	rb_dump_events(stats_events_cb, source_p);
 	send_pop_queue(source_p);
@@ -388,7 +384,7 @@ stats_events(struct Client *source_p)
  * side effects - client is shown list of pending glines
  */
 static void
-stats_pending_glines(struct Client *source_p)
+stats_pending_glines(struct Client *source_p, int parc, const char *parv[])
 {
 	if(ConfigFileEntry.glines)
 	{
@@ -439,7 +435,7 @@ stats_pending_glines(struct Client *source_p)
  * side effects - client is shown list of glines
  */
 static void
-stats_glines(struct Client *source_p)
+stats_glines(struct Client *source_p, int parc, const char *parv[])
 {
 	if(ConfigFileEntry.glines)
 	{
@@ -465,7 +461,7 @@ stats_glines(struct Client *source_p)
 
 
 static void
-stats_hubleaf(struct Client *source_p)
+stats_hubleaf(struct Client *source_p, int parc, const char *parv[])
 {
 	struct remote_conf *hub_p;
 	rb_dlink_node *ptr;
@@ -492,7 +488,7 @@ stats_hubleaf(struct Client *source_p)
 
 
 static void
-stats_auth(struct Client *source_p)
+stats_auth(struct Client *source_p, int parc, const char *parv[])
 {
 	const char *name, *host, *pass, *user, *classname;
 	struct AddressRec *arec;
@@ -552,7 +548,7 @@ stats_auth(struct Client *source_p)
 
 
 static void
-stats_tklines(struct Client *source_p)
+stats_tklines(struct Client *source_p, int parc, const char *parv[])
 {
 	const char *host, *pass, *user, *oper_reason;
 	struct ConfItem *aconf;
@@ -615,7 +611,7 @@ stats_tklines(struct Client *source_p)
 }
 
 static void
-stats_klines(struct Client *source_p)
+stats_klines(struct Client *source_p, int parc, const char *parv[])
 {
 	struct ConfItem *aconf;
 	const char *host, *pass, *user, *oper_reason;
@@ -698,14 +694,14 @@ list_msg_cb(void *data, void *cbptr)
 
 
 static void
-stats_messages(struct Client *source_p)
+stats_messages(struct Client *source_p, int parc, const char *parv[])
 {
 	hash_walkall(HASH_COMMAND, list_msg_cb, source_p);
 }
 
 
 static void
-stats_oper(struct Client *source_p)
+stats_oper(struct Client *source_p, int parc, const char *parv[])
 {
 	struct oper_conf *oper_p;
 	rb_dlink_node *ptr;
@@ -735,7 +731,7 @@ stats_oper(struct Client *source_p)
  * side effects - client is shown a list of active opers
  */
 static void
-stats_operedup(struct Client *source_p)
+stats_operedup(struct Client *source_p, int parc, const char *parv[])
 {
 	struct Client *target_p;
 	rb_dlink_node *oper_ptr;
@@ -775,7 +771,7 @@ stats_operedup(struct Client *source_p)
 }
 
 static void
-stats_ports(struct Client *source_p)
+stats_ports(struct Client *source_p, int parc, const char *parv[])
 {
 	if(!IsOper(source_p) && ConfigFileEntry.stats_P_oper_only)
 		sendto_one_numeric(source_p, ERR_NOPRIVILEGES, form_str(ERR_NOPRIVILEGES));
@@ -817,21 +813,21 @@ stats_resv_common(struct Client *source_p, bool wanttemp)
 }
 
 static void
-stats_tresv(struct Client *source_p)
+stats_tresv(struct Client *source_p, int parc, const char *parv[])
 {
 	stats_resv_common(source_p, true);
 }
 
 
 static void
-stats_resv(struct Client *source_p)
+stats_resv(struct Client *source_p, int parc, const char *parv[])
 {
 	stats_resv_common(source_p, false);
 }
 
 
 static void
-stats_usage(struct Client *source_p)
+stats_usage(struct Client *source_p, int parc, const char *parv[])
 {
 	struct rusage rus;
 	time_t secs;
@@ -879,7 +875,7 @@ stats_usage(struct Client *source_p)
 }
 
 static void
-stats_tstats(struct Client *source_p)
+stats_tstats(struct Client *source_p, int parc, const char *parv[])
 {
 	struct Client *target_p;
 	struct ServerStatistics sp;
@@ -937,7 +933,7 @@ stats_tstats(struct Client *source_p)
 }
 
 static void
-stats_uptime(struct Client *source_p)
+stats_uptime(struct Client *source_p, int parc, const char *parv[])
 {
 	time_t now;
 
@@ -967,7 +963,7 @@ stats_rbl_one(const char *rblname, unsigned long queries,
 }
 
 static void
-stats_rbl(struct Client *source_p)
+stats_rbl(struct Client *source_p, int parc, const char *parv[])
 {
 	rbl_dump_stats(stats_rbl_one, source_p);
 }
@@ -993,7 +989,7 @@ static struct shared_flags shared_flagtable[] = {
 
 
 static void
-stats_shared(struct Client *source_p)
+stats_shared(struct Client *source_p, int parc, const char *parv[])
 {
 	struct remote_conf *shared_p;
 	rb_dlink_node *ptr;
@@ -1050,7 +1046,7 @@ stats_shared(struct Client *source_p)
  * side effects - client is shown lists of who connected servers
  */
 static void
-stats_servers(struct Client *source_p)
+stats_servers(struct Client *source_p, int parc, const char *parv[])
 {
 	struct Client *target_p;
 	rb_dlink_node *ptr;
@@ -1091,7 +1087,7 @@ stats_servers(struct Client *source_p)
 }
 
 static void
-stats_tgecos(struct Client *source_p)
+stats_tgecos(struct Client *source_p, int parc, const char *parv[])
 {
 	struct ConfItem *aconf;
 	rb_dlink_node *ptr;
@@ -1108,7 +1104,7 @@ stats_tgecos(struct Client *source_p)
 }
 
 static void
-stats_gecos(struct Client *source_p)
+stats_gecos(struct Client *source_p, int parc, const char *parv[])
 {
 	struct ConfItem *aconf;
 	rb_dlink_node *ptr;
@@ -1125,7 +1121,7 @@ stats_gecos(struct Client *source_p)
 }
 
 static void
-stats_class(struct Client *source_p)
+stats_class(struct Client *source_p, int parc, const char *parv[])
 {
 	struct Class *cltmp;
 	rb_dlink_node *ptr;
@@ -1162,7 +1158,7 @@ stats_class(struct Client *source_p)
 
 
 static void
-stats_memory(struct Client *source_p)
+stats_memory(struct Client *source_p, int parc, const char *parv[])
 {
 	struct Client *target_p;
 	//struct Channel *chptr;
@@ -1396,7 +1392,7 @@ stats_memory(struct Client *source_p)
 }
 
 static void
-stats_ziplinks(struct Client *source_p)
+stats_ziplinks(struct Client *source_p, int parc, const char *parv[])
 {
 	rb_dlink_node *ptr;
 	struct Client *target_p;
@@ -1423,7 +1419,7 @@ stats_ziplinks(struct Client *source_p)
 }
 
 static void
-stats_servlinks(struct Client *source_p)
+stats_servlinks(struct Client *source_p, int parc, const char *parv[])
 {
 	time_t uptime;
 	uint64_t sent, receive;
@@ -1642,7 +1638,7 @@ rb_dump_fd_callback(int fd, const char *desc, void *data)
 }
 
 static void
-stats_comm(struct Client *source_p)
+stats_comm(struct Client *source_p, int parc, const char *parv[])
 {
 	rb_dump_fd(rb_dump_fd_callback, source_p);
 	send_pop_queue(source_p);

@@ -355,7 +355,7 @@ rb_accept_tryaccept(rb_fde_t *F, void *data)
 			return;
 		}
 #ifndef HAVE_ACCEPT4
-		rb_fd_set_cloexec(new_fd);
+		rb_fd_set_cloexec(new_fd, true);
 #endif
 		new_F = rb_open(new_fd, RB_FD_SOCKET, "Incoming Connection");
 
