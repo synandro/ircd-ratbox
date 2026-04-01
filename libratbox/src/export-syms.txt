@@ -4,6 +4,7 @@ rb_base64_encode
 rb_basename
 rb_checktimeouts
 rb_clear_patricia
+rb_clear_patricia_pair
 rb_close
 rb_connect_callback
 rb_connect_sockaddr
@@ -16,6 +17,7 @@ rb_current_time
 rb_current_time_tv
 rb_date
 rb_destroy_patricia
+rb_destroy_patricia_pair
 rb_dirname
 rb_dump_events
 rb_dump_fd
@@ -83,11 +85,18 @@ rb_linebuf_putmsg
 rb_listen
 rb_make_and_lookup
 rb_make_and_lookup_ip
+rb_make_and_lookup_ip_pair
+rb_make_and_lookup_pair
 rb_match_exact_string
+rb_match_exact_string_pair
 rb_match_ip
 rb_match_ip_exact
+rb_match_ip_exact_pair
+rb_match_ip_pair
 rb_match_string
+rb_match_string_pair
 rb_new_patricia
+rb_new_patricia_pair
 rb_new_rawbuffer
 rb_note
 rb_open
@@ -95,6 +104,7 @@ rb_outofmemory
 rb_patricia_lookup
 rb_patricia_process
 rb_patricia_remove
+rb_patricia_remove_pair
 rb_patricia_search_best
 rb_patricia_search_best2
 rb_patricia_search_exact

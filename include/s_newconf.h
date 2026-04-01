@@ -50,7 +50,7 @@ extern rb_dlink_list resv_channel_temp_list;
 extern rb_dlink_list resv_channel_perm_list;
 
 
-extern rb_patricia_tree_t *tgchange_tree;
+extern rb_patricia_pair_t *tgchange_tree;
 
 void init_s_newconf(void);
 void clear_s_newconf(void);

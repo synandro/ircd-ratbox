@@ -523,7 +523,7 @@ expire_tgchange(void *unused)
 		if(target->expiry < rb_current_time())
 		{
 			rb_dlinkDelete(ptr, &tgchange_list);
-			rb_patricia_remove(tgchange_tree, target->pnode);
+			rb_patricia_remove_pair(tgchange_tree, target->pnode);
 			rb_free(target->ip);
 			rb_free(target);
 		}

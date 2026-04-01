@@ -52,7 +52,7 @@ make_class(void)
 	MaxUsers(tmp) = 1;
 	MaxSendq(tmp) = DEFAULT_SENDQ;
 
-	tmp->ip_limits = rb_new_patricia(PATRICIA_BITS);
+	tmp->ip_limits = rb_new_patricia_pair();
 	return tmp;
 }
 
@@ -60,7 +60,7 @@ void
 free_class(struct Class *tmp)
 {
 	if(tmp->ip_limits)
-		rb_destroy_patricia(tmp->ip_limits, NULL);
+		rb_destroy_patricia_pair(tmp->ip_limits, NULL);
 
 	rb_free(tmp->class_name);
 	rb_free(tmp);

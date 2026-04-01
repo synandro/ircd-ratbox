@@ -62,7 +62,7 @@ rb_dlink_list glines;
 static rb_dlink_list nd_list;	/* nick delay */
 rb_dlink_list tgchange_list;
 
-rb_patricia_tree_t *tgchange_tree;
+rb_patricia_pair_t *tgchange_tree;
 
 
 static void expire_temp_rxlines(void *unused);
@@ -72,7 +72,7 @@ static void expire_glines(void *unused);
 void
 init_s_newconf(void)
 {
-	tgchange_tree = rb_new_patricia(PATRICIA_BITS);
+	tgchange_tree = rb_new_patricia_pair();
 	rb_event_addish("expire_nd_entries", expire_nd_entries, NULL, 30);
 	rb_event_addish("expire_temp_rxlines", expire_temp_rxlines, NULL, 60);
 	rb_event_addish("expire_glines", expire_glines, NULL, CLEANUP_GLINES_TIME);
@@ -821,7 +821,7 @@ add_tgchange(const char *host)
 		return;
 
 	target = rb_malloc(sizeof(tgchange));
-	pnode = rb_make_and_lookup(tgchange_tree, host);
+	pnode = rb_make_and_lookup_pair(tgchange_tree, host);
 
 	pnode->data = target;
 	target->pnode = pnode;
@@ -837,7 +837,7 @@ find_tgchange(const char *host)
 {
 	rb_patricia_node_t *pnode;
 
-	if((pnode = rb_match_exact_string(tgchange_tree, host)))
+	if((pnode = rb_match_exact_string_pair(tgchange_tree, host)))
 		return pnode->data;
 
 	return NULL;

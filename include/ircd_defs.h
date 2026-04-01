@@ -124,12 +124,6 @@
 #define CLIENT_PARSE_ERROR -1
 #define CLIENT_OK	1
 
-#ifdef RB_IPV6
-#define PATRICIA_BITS	128
-#else
-#define PATRICIA_BITS	32
-#endif
-
 
 /* Just blindly define our own MIN/MAX macro */
 

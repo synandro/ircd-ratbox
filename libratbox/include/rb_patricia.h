@@ -84,6 +84,24 @@ rb_prefix_t *ascii2prefix(int family, char *string);
 rb_patricia_node_t *rb_make_and_lookup(rb_patricia_tree_t *tree, const char *string);
 rb_patricia_node_t *rb_make_and_lookup_ip(rb_patricia_tree_t *tree, struct sockaddr *, int bitlen);
 
+typedef struct _rb_patricia_pair_t
+{
+	rb_patricia_tree_t *v4;		/* maxbits = 32  */
+	rb_patricia_tree_t *v6;		/* maxbits = 128 */
+} rb_patricia_pair_t;
+
+rb_patricia_pair_t *rb_new_patricia_pair(void);
+void rb_destroy_patricia_pair(rb_patricia_pair_t *, void (*func)(void *));
+void rb_clear_patricia_pair(rb_patricia_pair_t *, void (*func)(void *));
+
+rb_patricia_node_t *rb_match_ip_pair(rb_patricia_pair_t *, struct sockaddr *);
+rb_patricia_node_t *rb_match_ip_exact_pair(rb_patricia_pair_t *, struct sockaddr *, unsigned int len);
+rb_patricia_node_t *rb_match_string_pair(rb_patricia_pair_t *, const char *);
+rb_patricia_node_t *rb_match_exact_string_pair(rb_patricia_pair_t *, const char *);
+rb_patricia_node_t *rb_make_and_lookup_ip_pair(rb_patricia_pair_t *, struct sockaddr *, int bitlen);
+rb_patricia_node_t *rb_make_and_lookup_pair(rb_patricia_pair_t *, const char *);
+void rb_patricia_remove_pair(rb_patricia_pair_t *, rb_patricia_node_t *);
+
 
 #define RB_PATRICIA_MAXBITS 128
 #define RB_PATRICIA_NBIT(x)	   (0x80 >> ((x) & 0x7f))

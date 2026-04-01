@@ -1113,3 +1113,122 @@ rb_match_exact_string(rb_patricia_tree_t *tree, const char *string)
 		return NULL;
 	return node;
 }
+
+/* --- dual-tree pair wrappers --- */
+
+rb_patricia_pair_t *
+rb_new_patricia_pair(void)
+{
+	rb_patricia_pair_t *pair = rb_malloc(sizeof(rb_patricia_pair_t));
+	pair->v4 = rb_new_patricia(32);
+#ifdef RB_IPV6
+	pair->v6 = rb_new_patricia(128);
+#else
+	pair->v6 = NULL;
+#endif
+	return pair;
+}
+
+void
+rb_destroy_patricia_pair(rb_patricia_pair_t *pair, void (*func)(void *))
+{
+	if(pair == NULL)
+		return;
+	if(pair->v4)
+		rb_destroy_patricia(pair->v4, func);
+#ifdef RB_IPV6
+	if(pair->v6)
+		rb_destroy_patricia(pair->v6, func);
+#endif
+	rb_free(pair);
+}
+
+void
+rb_clear_patricia_pair(rb_patricia_pair_t *pair, void (*func)(void *))
+{
+	if(pair == NULL)
+		return;
+	if(pair->v4)
+		rb_clear_patricia(pair->v4, func);
+#ifdef RB_IPV6
+	if(pair->v6)
+		rb_clear_patricia(pair->v6, func);
+#endif
+}
+
+rb_patricia_node_t *
+rb_match_ip_pair(rb_patricia_pair_t *pair, struct sockaddr *ip)
+{
+	if(ip->sa_family == AF_INET)
+		return rb_match_ip(pair->v4, ip);
+#ifdef RB_IPV6
+	if(ip->sa_family == AF_INET6)
+		return rb_match_ip(pair->v6, ip);
+#endif
+	return NULL;
+}
+
+rb_patricia_node_t *
+rb_match_ip_exact_pair(rb_patricia_pair_t *pair, struct sockaddr *ip, unsigned int len)
+{
+	if(ip->sa_family == AF_INET)
+		return rb_match_ip_exact(pair->v4, ip, len);
+#ifdef RB_IPV6
+	if(ip->sa_family == AF_INET6)
+		return rb_match_ip_exact(pair->v6, ip, len);
+#endif
+	return NULL;
+}
+
+rb_patricia_node_t *
+rb_match_string_pair(rb_patricia_pair_t *pair, const char *string)
+{
+#ifdef RB_IPV6
+	if(strchr(string, ':'))
+		return rb_match_string(pair->v6, string);
+#endif
+	return rb_match_string(pair->v4, string);
+}
+
+rb_patricia_node_t *
+rb_match_exact_string_pair(rb_patricia_pair_t *pair, const char *string)
+{
+#ifdef RB_IPV6
+	if(strchr(string, ':'))
+		return rb_match_exact_string(pair->v6, string);
+#endif
+	return rb_match_exact_string(pair->v4, string);
+}
+
+rb_patricia_node_t *
+rb_make_and_lookup_ip_pair(rb_patricia_pair_t *pair, struct sockaddr *in, int bitlen)
+{
+	if(in->sa_family == AF_INET)
+		return rb_make_and_lookup_ip(pair->v4, in, bitlen);
+#ifdef RB_IPV6
+	if(in->sa_family == AF_INET6)
+		return rb_make_and_lookup_ip(pair->v6, in, bitlen);
+#endif
+	return NULL;
+}
+
+rb_patricia_node_t *
+rb_make_and_lookup_pair(rb_patricia_pair_t *pair, const char *string)
+{
+#ifdef RB_IPV6
+	if(strchr(string, ':'))
+		return rb_make_and_lookup(pair->v6, string);
+#endif
+	return rb_make_and_lookup(pair->v4, string);
+}
+
+void
+rb_patricia_remove_pair(rb_patricia_pair_t *pair, rb_patricia_node_t *node)
+{
+	if(node->prefix->family == AF_INET)
+		rb_patricia_remove(pair->v4, node);
+#ifdef RB_IPV6
+	else if(node->prefix->family == AF_INET6)
+		rb_patricia_remove(pair->v6, node);
+#endif
+}
