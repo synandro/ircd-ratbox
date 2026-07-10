@@ -238,6 +238,13 @@ read_packet(rb_fde_t * F, void *data)
 		if(IsAnyDead(client_p))
 			return;
 
+		/* Defensive: read_packet must only ever run against the local client
+		 * that owns this fde.  If read_data has been recycled into a remote
+		 * client (localClient == NULL) via a stale/parked fde, bail out here
+		 * instead of dereferencing a NULL localClient below. */
+		if(!MyConnect(client_p) || client_p->localClient == NULL)
+			return;
+
 		/*
 		 * Read some data. We *used to* do anti-flood protection here, but
 		 * I personally think it makes the code too hairy to make sane.

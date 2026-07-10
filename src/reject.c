@@ -124,6 +124,17 @@ void
 add_delay_exit(rb_fde_t *F, const char *reason)
 {
 	delay_t *ddata;
+
+	/* The fde being parked here may still be armed with read_packet (and its
+	 * read_data may point at a Client that is about to be freed): close_connection
+	 * deliberately skips rb_close() on the delay-exit path, so nothing else
+	 * disarms it.  Cancel all pending selects now so a later readable/writable
+	 * event on this socket can never dispatch a stale handler against recycled
+	 * memory.  The socket is intentionally left OPEN: delay_exit() sends the
+	 * ERROR line with a direct rb_write() before rb_close(), so it needs no
+	 * select handler. */
+	rb_setselect(F, RB_SELECT_READ | RB_SELECT_WRITE, NULL, NULL);
+
 	ddata = rb_malloc(sizeof(delay_t));
 
 	ddata->time = rb_current_time();
