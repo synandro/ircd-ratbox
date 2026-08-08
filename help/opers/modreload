@@ -1,0 +1,14 @@
+MODRELOAD
+
+The specified module is unloaded and then reloaded.
+Useful for applying changes without restarting the server.
+
+-- Reload a module into the ircd
+the optional path can be an absolute path
+from / or from the IRCD_PREFIX
+(ie modules/autoload/m_users.so)
+
+- Requires Oper Priv: A
+
+Syntax: MODRELOAD <[path/]module.so>
+
