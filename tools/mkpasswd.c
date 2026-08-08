@@ -53,14 +53,14 @@ static const char saltChars[] = "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghi
        /* 0 .. 63, ascii - 64 */
 
 extern char *optarg;
-extern char *crypt();
+extern char *crypt(const char *, const char *);
 
 #ifndef PASS_MAX
 #define PASS_MAX 256
 #endif
 
 #ifndef __MINGW32__
-extern char *getpass();
+extern char *getpass(const char *);
 #else
 #include <conio.h>
 static char getpassbuf[PASS_MAX + 1];
